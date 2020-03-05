@@ -1,12 +1,180 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+\usepackage[turkish]{babel}
 \usepackage[utf8]{inputenc}
-
-\title{Ön Tasarım Raporu}
-\author{}
-\date{March 2020}
+\usepackage[style=ieee]{biblatex}
+\usepackage[document]{ragged2e}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{acronym}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup[table]{name=Tablo}
+\renewcommand{\figurename}{Şekil}
+\renewcommand{\contentsname}{İçindekiler}
+%\renewcommand\bibname{Kaynakça}
+%\renewcommand\refname{New Title}
+%\addbibresource{references.bib}
+% \selectlanguage{turkish}
 
 \begin{document}
+\begin{titlepage}
 
-\maketitle
-\section{Introduction}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\center
+
+\textsc{\LARGE TEKNOFEST}\\[1.0cm]
+\textsc{\large HAVACILIK, UZAY VE TEKNOLOJİ FESTİVALİ}\\[1.0cm]
+\text{\large İnsansız Su Altı Sistemleri Yarışması}\\[1.0cm]
+\HRule \\[0.4cm]
+{\huge \bfseries Nucleo}\\[0.3cm]
+\HRule \\[1.0cm]
+{\large \bfseries Ön Tasarım Raporu}\\[2cm]
+{\large Takım Adı:}\\[1cm]
+{\large Takım ID:}\\[1cm]
+{\large Takım Üyeleri:}\\[1cm]
+{\large Takım Danışmanı:}\\[1cm]
+%\includegraphics{logo.png}\\[1cm]
+
+\vfill
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Kısaltmalar}
+\section*{Kısaltmalar}
+\input{acronyms.tex}
+
+\newpage
+
+\section{Rapor Özeti}
+
+\begin{justify}
+\justify
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Takım Şeması}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsection{Takım Üyeleri}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsection{Organizasyon Şeması ve Görev Dağılımı}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Araç Ön Tasarımı}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsection{Sistem Ön Tasarımı}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsection{Aracın Mekanik Tasarımı}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Mekanik Tasarım Süreci}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Malzemeler}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Üretim Yöntemleri}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Fiziksel Özellikler}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsection{Elektronik Tasarım, Algoritma ve Yazılım Tasarımı}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Elektronik Ön Tasarım Süreci}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Algoritma Ön Tasarım Süreci}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Yazılım Ön Tasarım Süreci}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\subsubsection{Dış Arayüzler}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Güvenlik}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Zaman, Bütçe ve Risk Planlaması}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Özgünlük}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+\section{Referanslar}
+
+\begin{justify}
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\end{justify}
+
+
+\addcontentsline{toc}{section}{Kaynakça}
+%\printbibliography[title={Kaynakça}]
+
 \end{document}
