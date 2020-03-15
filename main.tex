@@ -15,9 +15,9 @@
 \captionsetup[table]{name=Tablo}
 \renewcommand{\figurename}{Şekil}
 \renewcommand{\contentsname}{İçindekiler}
-%\renewcommand\bibname{Kaynakça}
+\addbibresource{references.bib}
+\renewcommand\bibname{Referanslar}
 %\renewcommand\refname{New Title}
-%\addbibresource{references.bib}
 % \selectlanguage{turkish}
 
 \begin{document}
@@ -180,24 +180,53 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 
 \section{Zaman, Bütçe ve Risk Planlaması}
 
-\begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+% \paragraph{} Blablabla
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|r|r|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Malzeme İsmi}} & \textbf{Adet} & \multicolumn{1}{c|}{\textbf{Fiyat}} & \multicolumn{1}{c|}{\textbf{Toplam Fiyat}} \\ \hline
+iBM2208Q BLDC Motor      & 6      & ₺136.00       & ₺816.00       \\ \hline
+STM32F429ZI              & 1      & ₺216.00       & ₺216.00       \\ \hline
+Raspberry Pi 3 Model B   & 1      & ₺262.00       & ₺262.00       \\ \hline
+Bar30                    & 1      & ₺450.00       & ₺450.00       \\ \hline
+Raspberry Pi Kamera      & 1      & ₺105.00       & ₺105.00       \\ \hline
+USB Kamera               & 1      & ₺105.00       & ₺105.00       \\ \hline
+PCB                      & 1      & ₺300.00       & ₺300.00       \\ \hline
+PCB Komponentleri        & 1      & ₺100.00       & ₺100.00       \\ \hline
+Batarya                  & 6      & ₺35.00        & ₺210.00       \\ \hline
+Pleksi Kesim             & 1      & ₺500.00       & ₺500.00       \\ \hline
+CNC Aluminyum Parcalar   & 1      & ₺1,250.00     & ₺1,250.00     \\ \hline
+3D Print Parcalar        & 1      & ₺300.00       & ₺300.00       \\ \hline
+MPU 6050                 & 3      & ₺9.00         & ₺27.00        \\ \hline
+Monitor                  & 1      & ₺500.00       & ₺500.00       \\ \hline
+Joystick                 & 1      & ₺150.00       & ₺150.00       \\ \hline
+Tether Kablo             & 1      & ₺100.00       & ₺100.00       \\ \hline
+LittleBee ESC 20A        & 6      & ₺100.00       & ₺600.00       \\ \hline
+Akrilik Tup              & 1      & ₺100.00       & ₺100.00       \\ \hline
+Mekanik Sarf Malzemeleri & 1      & ₺100.00       & ₺100.00       \\ \hline
+Robot Kol                & 1      & ₺2,100.00     & ₺2,100.00     \\ \hline
+\textbf{Toplam}          & \multicolumn{3}{c|}{\textbf{₺6420.00}} \\ \hline
+\end{tabular}%
+}
+\caption{Bütçe}
+\label{tab:butce}
+\end{table}
 
 \section{Özgünlük}
 
 \begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır. Random citation \cite{BOOK:o-ring} embeddeed in text.
 \end{justify}
 
 \section{Referanslar}
 
-\begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+\printbibliography[title={}]
 
 
-\addcontentsline{toc}{section}{Kaynakça}
-%\printbibliography[title={Kaynakça}]
+
+
 
 \end{document}
