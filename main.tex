@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage{mathptmx}
 \usepackage[turkish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[style=ieee]{biblatex}
@@ -17,6 +18,7 @@
 \renewcommand{\contentsname}{İçindekiler}
 \addbibresource{references.bib}
 \renewcommand\bibname{Referanslar}
+\renewcommand{\baselinestretch}{1.15}
 %\renewcommand\refname{New Title}
 % \selectlanguage{turkish}
 
@@ -95,7 +97,7 @@ Sinan Ertuğrul & Yıldırım         & Elektrik Mühendisliği                 
 
 \subsection{Organizasyon Şeması ve Görev Dağılımı}
 
-\begin{justify}
+\begin{justify} % BU JUSTIFYlar CALISMIYORRRR!
 \paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması ile gerçekleştirdik.
 \end{justify}
 \begin{justify}
@@ -107,7 +109,11 @@ Sinan Ertuğrul & Yıldırım         & Elektrik Mühendisliği                 
 \section{Araç Ön Tasarımı}
 
 \begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inçe kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'nin güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır.
+\end{justify}
+
+\begin{justify}
+\paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. 
 \end{justify}
 
 \subsection{Sistem Ön Tasarımı}
@@ -127,7 +133,7 @@ Sinan Ertuğrul & Yıldırım         & Elektrik Mühendisliği                 
 \subsubsection{Malzemeler}
 
 \begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik, hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden dolayı seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve  gibi parçalar 3B plastik basım yöntemiyle üretilmiştir. 
 \end{justify}
 
 \subsubsection{Üretim Yöntemleri}
