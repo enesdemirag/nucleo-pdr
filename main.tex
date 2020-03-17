@@ -1,11 +1,14 @@
 \documentclass[12pt]{article}
-\usepackage[a4paper,left=1in,right=1in]{geometry}
-% marginleri 1er inch yaptim, isterseniz daha da arttirabiliriz.
+\usepackage[a4paper,left=1in,right=1in, top=1in, bottom=1in]{geometry}
+% marginleri 1er inch yaptim
 \renewcommand{\baselinestretch}{1.15} % satir araligi 1.15
 \usepackage{mathptmx}
 \usepackage[utf8]{inputenc}
 \usepackage[style=ieee]{biblatex}
 \usepackage[document]{ragged2e}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{setspace}
 % \usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
@@ -29,6 +32,44 @@
 % \selectlanguage{turkish}
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 %\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+% \subsubsubsection ekleme kodu başlangıcı.
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\onehalfspacing
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \subsubsubsection ekleme kodu sonu.
+
+
 \begin{document}
 
 \title{\vspace{1cm}
@@ -52,6 +93,7 @@
 }
 \maketitle
 \newpage
+
 \tableofcontents
 
 \newpage
@@ -64,7 +106,7 @@
 \section{Rapor Özeti}
 
 % nucleo ROV mu diyelim? 
-\paragraph{} Nucleo, İstanbul Teknik Üniversitesi, Elektrik-Elektronik Fakültesi bünyesindeki farklı bölümlerden dört, son sınıf öğrencisinin bir araya gelerek uzaktan kumandalı sualtı aracı (ROV) gerçekleştirmek üzere kurduğu bir proje takımıdır.
+\paragraph{} Nucleo, İstanbul Teknik Üniversitesi Elektrik-Elektronik Fakültesi bünyesindeki farklı bölümlerden dört son sınıf öğrencisinin bir araya gelerek uzaktan kumandalı sualtı aracı (ROV) gerçekleştirmek üzere kurduğu bir proje takımıdır.
 
 \paragraph{} Takım üyeleri 2017 yılından bu yana İTÜ ROV Takımı ve İTÜ AUV Takımı bünyesinde yorulmak bilmeyen çalışmaların ve edinilen tecrübelerin ardından  yeni bir araç üreterek Teknofest Su altı Sistemleri Yarışması'nda derece elde etmeyi amaçlamaktadır.
 
@@ -72,7 +114,7 @@
 
 \paragraph{} ROV mümkün olduğunca üniversite bünyesinde üretilebilecek şekilde tasarlanacaktır ve üretim maliyetini en aza indirmek için ekibimizdeki insanların aynı zamanda çalışmakta olduğu İTÜ Gemi İnşaatı ve Deniz Bilimleri Fakültesi'ndeki Otonom Su Altı Aracı (AUV) Takımı'nın çalışma odası kullanılacaktır.
 
-\paragraph{} İTÜ ROV Takımı ve İTÜ AUV Takımı'nın kurucu üyeleri olarak her zaman açık kaynaklı çalışarak su altı sistemleri topluluğuna fayda sağladık. Geçtiğimiz yıllarda geliştirdiğimiz araçlarımız ile ilgili tüm mekanik-elektronik tasarımlar ve yazılımımızı GitHub adresimizde bulabilirsiniz.
+\paragraph{} İTÜ ROV Takımı ve İTÜ AUV Takımı'nın kurucu üyeleri olarak her zaman açık kaynaklı çalışarak su altı sistemleri topluluğuna fayda sağladık. Geçtiğimiz yıllarda geliştirdiğimiz araçlarımız ile ilgili tüm mekanik-elektronik tasarımlar ve yazılımımızı GitHub adresimizde bulabilirsiniz. % silebiliriz
 
 \newpage
 
@@ -101,14 +143,14 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması ile gerçekleştirdik.
 
-\paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu ve görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
+\paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
 
 \newpage
 
 \section{Araç Ön Tasarımı}
 
 
-\paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inçe kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'nin güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır.
+\paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inçe kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'un güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır.
 
 \paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. 
 
@@ -131,10 +173,9 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Malzemeler}
 
-\paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik, hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden dolayı seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve tutucu manipülatör gibi parçalar 3B plastik basım yöntemiyle üretilecektir. Su geçirmez haznenin o-ring conta bulunduran flanş parçaları alüminyumdan seçilmiştir. Araçta sabitleme elemanı olarak paslanmaz alyan başlı civatalar, paslanmaz somun ve gijonlar kullanılacaktır.
+\paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik; hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden ötürü seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve tutucu manipülatör gibi parçalar 3B plastik basım yöntemiyle üretilecektir. Su geçirmez haznenin o-ring conta bulunduran flanş parçaları alüminyumdan seçilmiştir. Araçta sabitleme elemanı olarak paslanmaz alyan başlı civatalar, paslanmaz somun ve gijonlar kullanılacaktır.
 
 \subsubsection{Üretim Yöntemleri}
-
 
 \paragraph{} Aracın şasesini oluşturan akrilik parçalar lazer kesim yöntemi ile işlenecektir. Bu yöntem ve akrilik malzeme seçimi üretim kolaylığı ve ekonomik oluşundan dolayı tercih edilmiştir. Su geçirmez kabın contalı flanşı aluminyumdan manuel torna da talaşlı imalat yöntemiyle işlenecektir. 3B plastik parçalar 3B yazıcılar yardımıyla basılacaktır.\newpage
 
@@ -144,6 +185,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \centering
 \includegraphics[width=1\linewidth]{specs.jpg}
 \caption{Su Altı Aracının Ölçüleri}
+\label{fig:technicaldrawing}
 \end{figure}
 
 
@@ -154,25 +196,70 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Elektronik Ön Tasarım Süreci}
 
-\paragraph{} Blabla
+\paragraph{} Nucleo'nun testlerine erken başlayabilmek adına elektronik tasarımda ilk olarak temel bileşenleri barındıran ve esneklik sağlayabilecek baskı deve tasarlanmaya başlanacaktır. Anakartta önceden düşünülmüş ve kullanılacak olan güç dağıtımı, haberleşme ve sensör pinlerinin dışında yedek planlara hızlı geçiş için fazladan giriş ve çıkışlar bulundurulacaktır. İlk testlerin ardından eksik ve hatalı noktalar giderilerek devremiz güncellenecek ve bu süreç istenilen görevleri başarıyla gerçekleştirene kadar devam edecektir. 
+
+\subsubsubsection{Enerji İletimi ve Dağıtımı}
+
+\paragraph{} Nucleo, gücünü şebekeden gelen 220VAC gerilimi 12VDC'ye dönüştüren bir güç kaynağından alacaktır. Nucleo'nun güç altı motoru ve diğer elektronik komponentlerinin güç gereksinimi göz önüne alındığında 30A taşıyabilecek 14AWG kablo yeterli olacaktır.
+
+\subsubsubsection{Temel Bileşenler}
+
+\paragraph{} 
+\subsubsubsection{Sensörler ve Kameralar}
+\subsubsubsection{Güç İletimi ve Dağıtımı}
+\paragraph{}
+
+
+The AUV has two main sections(back and front) and some little sections for other elements like torpedo and manipulator. Back section contains our battery, ESC's, microcontrollers and sensor boards. The vehicle is supplied with 4S10P Lithium-ion battery. Our battery also has a custom PCB that watches the state of charge and the state of health of the battery 7/24. The PCB has also 12V, 9V and 5V outputs. There are 8 thrusters and 8 ESC's. 
+
+Front section contains our CPU and cameras. Power transmission and communication are provided between these sections through bulkhead. Vehicle's working principle is simple, yet effective. Microcontrollers collect data from sensors and transmit those data to the NVDIA Xavier and receive commands from it. The communication occurs through TCP/IP protocol. We designed multiple PCB's to make debugging easier and in case of emergency, we wouldn't had to change the whole system.
+
+Under the vehicle, we have our hydrophones and a custom PCB that processes the signals and sends the data to main microcontroller. We used a 480MHz high speed microcontroller for hydrophone circuit and placed it right next to our hydrophones to minimize the environment's effects on the signals. 
+
+
+\paragraph{} {Bu kısımda aracın elektronik tasarım süreçleri anlatılır. Aracın ön tasarımına ait görsellere (Blok şema, teknik resim, prototip fotoğrafları vb.) yer verilir. Kullanılması planlanan alt bileşenler (Sensörler, kameralar, kablolar, anakart, motor sürücüler, güç kartları vb. ) hakkında bilgi verilir.}
 
 
 \subsubsection{Algoritma Ön Tasarım Süreci}
 
 
-\paragraph{} Blabla
+\paragraph{} Flow Chart
 
 
 \subsubsection{Yazılım Ön Tasarım Süreci}
 
 
-\paragraph{} Blabla
+\paragraph{} Yazılım ekibi üyemiz Sencer Yazıcı, aynı zamanda İTÜ AUV Takımı yazılım ekip liderliğini üstlendiğinden, İTÜ AUV Takımı bünyesinde geliştirilen yazılımı kullanmayı hedeflemekteyiz. Takımda geliştirilen yazılım, modüler bir altyapı içerdiğinden, kolayca entegre edilebilecektir.
+
+Başlıca sistemi genel parçalara ayıracak olursak
+\begin{itemize}
+    \item STM32F429ZI Mikrokontrolör üzerinde çalışacak olan gömülü sistem, alt seviye yazılım
+    \item Raspberry Pi Üzerinde çalışacak olan, karar verme mekanizmasına ve haberleşme sistemlerine sahip sistem, üst seviye yazılım
+    \item Yer istasyonunda çalışacak olan, operatör komutlarının aracın komuta sistemine aktarılmasını sağlayan haberleşme çift yönlü telemetri (veri aktarımı)
+\end{itemize}
+
+\subsubsubsection{Gömülü Sistem \& Mikrokontrolör}
+
+Anakart üzerine takılı STM32F429ZI mikrokontrolörün, temel görevi alt seviye elektronik işlemleri ve aracın temel fonksiyonlarını kontrol etmektir. Geliştirilen gömülü yazılım, güç hattının gerilimini hassas bir şekilde ölçerek motorları istenilen kuvveti üretecek şekilde bir PWM sinyali üretir. Burada, ekibimiz tarafından motorun su altında yapılan testleriyle elde edilen PWM - Kuvvet karakteristiği kullanılır. bu sayede test edilen gerilim aralığında herhangi bir gerilimde, mikrokontrolör istenilen kuvveti üretecek PWM sinyaini hesaplayabilir, ve böylece 5-Eksen PID kontrolör ile kontrol sistemi çalıştırılır. Burada SimScape üzerinde yapılan CFD testleri ile de, drag (direnç) ve damping (sönüm) katsayıları hesaplanır. Bu hesaplar sonucu elde edilen matematik modele göre bir PID kontrolör tasarlanır, ve su altında gerçek sistem üzerinde yapılan testler sonucu ince ayar (Fine Tuning) yapılarak nihai parametrelere ulaşılır. 
+
+Ayrıca gömülü sistem, basınç sensöründen elde ettiği veriyi, Kalman Filtresi ile filtreleyerek 5 eksen kontrol sisteminde kullanılacak olan derinlik geribeslemesini hesaplar.
+
+Bunun yanı sıra, yine temel fonksiyonlar kategorisine giren, eyleyicilerin (manipülatörlerin) kontrolünü de, gömülü yazılım yürütür.
+
+Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, ROS topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
+
+Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bünyesinde geliştirilmiştir ve tamamen özgündür. Bu yazılım İTÜ AUV Takımında da aktif olarak kullanılmaktadır ve modüler yapısı sayesinde teknofest yarışması için de kolayca entegre edilebilecektir.  
+% todo: topic nedir hacım ? xD
+
+
+\subsubsubsection{Raspberry Pi \& Bilgisayar ?}
+
 
 
 \subsubsection{Dış Arayüzler}
 
 
-\paragraph{} Blabla
+\paragraph{} GUI
 
 
 \section{Güvenlik}
@@ -228,10 +315,7 @@ Robot Kol                & 1      & 2,100.00     & 2,100.00     \\ \hline
 
 \section{Referanslar}
 
-\printbibliography[title={}]
-
-
-
+\printbibliography[title={\textbf{ }}]
 
 
 \end{document}
