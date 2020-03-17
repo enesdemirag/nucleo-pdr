@@ -1,23 +1,23 @@
 \documentclass[12pt]{article}
 \usepackage{mathptmx}
-\usepackage[turkish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[style=ieee]{biblatex}
 \usepackage[document]{ragged2e}
-\usepackage{amsmath}
+% \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{makeidx}
-\usepackage{rotating}
-\usepackage{tikz}
+\graphicspath{{./images/}}
+% \usepackage{makeidx}
+% \usepackage{rotating}
+% \usepackage{tikz}
 \usepackage{acronym}
 \usepackage{hyperref}
-\usepackage{float}
+% \usepackage{float}
 \usepackage{caption}
+\usepackage{filecontents}
 \captionsetup[table]{name=Tablo}
 \renewcommand{\figurename}{Şekil}
 \renewcommand{\contentsname}{İçindekiler}
 \addbibresource{references.bib}
-\renewcommand\bibname{Referanslar}
 \renewcommand{\baselinestretch}{1.15}
 %\renewcommand\refname{New Title}
 % \selectlanguage{turkish}
@@ -31,15 +31,15 @@
 
 \textsc{\LARGE TEKNOFEST}\\[1.0cm]
 \textsc{\large HAVACILIK, UZAY VE TEKNOLOJİ FESTİVALİ}\\[1.0cm]
-\text{\large İnsansız Su Altı Sistemleri Yarışması}\\[1.0cm]
+\textsc{\large İnsansız Su Altı Sistemleri Yarışması}\\[1.0cm]
 \HRule \\[0.4cm]
 {\huge \bfseries Nucleo}\\[0.3cm]
 \HRule \\[1.0cm]
-{\large \bfseries Ön Tasarım Raporu}\\[2cm]
+{\large \bfseries Ön Tasarım Raporu}\\[1cm]
 {\large Takım Adı: Nucleo}\\[1cm]
-{\large Takım ID: ******}\\[1cm]
+{\large Takım ID: T3-16167-166}\\[1cm]
 {\large Takım Üyeleri: Ege Saygılı, Enes Demirağ, Sencer Yazıcı, Sinan Ertuğrul Yıldırım}\\[1cm]
-{\large Takım Danışmanı: Ar. Gör. Ozan Şerifoğlu}\\[1cm]
+{\large Takım Danışmanı: Ar. Gör. Mehmet Ozan Şerifoğlu}\\[1cm]
 %\includegraphics{logo.png}\\[1cm]
 
 \vfill
@@ -56,21 +56,16 @@
 
 \section{Rapor Özeti}
 
-\begin{justify}
+% nucleo ROV mu diyelim? 
 \paragraph{} Nucleo, İstanbul Teknik Üniversitesi, Elektrik-Elektronik Fakültesi bünyesindeki farklı bölümlerden dört, son sınıf öğrencisinin bir araya gelerek uzaktan kumandalı sualtı aracı (ROV) gerçekleştirmek üzere kurduğu bir proje takımıdır.
-\end{justify}
-\begin{justify}
+
 \paragraph{} Takım üyeleri 2017 yılından bu yana İTÜ ROV Takımı ve İTÜ AUV Takımı bünyesinde yorulmak bilmeyen çalışmaların ve edinilen tecrübelerin ardından  yeni bir araç üreterek Teknofest Su altı Sistemleri Yarışması'nda derece elde etmeyi amaçlamaktadır.
-\end{justify}
-\begin{justify}
+
 \paragraph{} Geliştirilecek araç, su altında yüzeydeki kontrol istasyonundan bir pilotun kontrolü ile veya tamamen otonom olarak çeşitli görevleri yapabilecektir. Araç, Teknofest Su altı Sistemleri Yarışması’nın beklentilerini amaçlanan maksimum başarı düzeyinde gerçekleştirmek üzere tasarlanacak ve üretilecektir. Takımımız, belirli görevlere odaklanmak üzere mekanik, elektronik, ve yazılım olmak üzere üç alt ekibe bölünmüştür. ROV, görev gereksinimlerini yerine getirirken hem minimum boyut hem de ağırlık optimizasyonu ile tasarlanacaktır.
-\end{justify}
-\begin{justify}
+
 \paragraph{} ROV mümkün olduğunca üniversite bünyesinde üretilebilecek şekilde tasarlanacaktır ve üretim maliyetini en aza indirmek için ekibimizdeki insanların aynı zamanda çalışmakta olduğu İTÜ Gemi İnşaatı ve Deniz Bilimleri Fakültesi'ndeki Otonom Su Altı Aracı (AUV) Takımı'nın çalışma odası kullanılacaktır.
-\end{justify}
-\begin{justify}
+
 \paragraph{} İTÜ ROV Takımı ve İTÜ AUV Takımı'nın kurucu üyeleri olarak her zaman açık kaynaklı çalışarak su altı sistemleri topluluğuna fayda sağladık. Geçtiğimiz yıllarda geliştirdiğimiz araçlarımız ile ilgili tüm mekanik-elektronik tasarımlar ve yazılımımızı GitHub adresimizde bulabilirsiniz.
-\end{justify}
 
 \newpage
 
@@ -97,92 +92,91 @@ Sinan Ertuğrul & Yıldırım         & Elektrik Mühendisliği                 
 
 \subsection{Organizasyon Şeması ve Görev Dağılımı}
 
-\begin{justify} % BU JUSTIFYlar CALISMIYORRRR!
 \paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması ile gerçekleştirdik.
-\end{justify}
-\begin{justify}
+
 \paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu ve görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
-\end{justify}
 
 \newpage
 
 \section{Araç Ön Tasarımı}
 
-\begin{justify}
+
 \paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inçe kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'nin güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır.
-\end{justify}
 
-\begin{justify}
 \paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. 
-\end{justify}
 
+\newpage
 \subsection{Sistem Ön Tasarımı}
 
-\begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{SID.png}
+\caption{System Integration Diagram}
+\end{figure}
 
+\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\newpage
 \subsection{Aracın Mekanik Tasarımı}
 
 \subsubsection{Mekanik Tasarım Süreci}
 
-\begin{justify}
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
 
 \subsubsection{Malzemeler}
 
-\begin{justify}
-\paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik, hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden dolayı seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve  gibi parçalar 3B plastik basım yöntemiyle üretilmiştir. 
-\end{justify}
+\paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik, hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden dolayı seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve tutucu manipülatör gibi parçalar 3B plastik basım yöntemiyle üretilecektir. Su geçirmez haznenin o-ring conta bulunduran flanş parçaları alüminyumdan seçilmiştir. Araçta sabitleme elemanı olarak paslanmaz alyan başlı civatalar, paslanmaz somun ve gijonlar kullanılacaktır.
 
 \subsubsection{Üretim Yöntemleri}
 
-\begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+
+\paragraph{} Aracın şasesini oluşturan akrilik parçalar lazer kesim yöntemi ile işlenecektir. Bu yöntem ve akrilik malzeme seçimi üretim kolaylığı ve ekonomik oluşundan dolayı tercih edilmiştir. Su geçirmez kabın contalı flanşı aluminyumdan manuel torna da talaşlı imalat yöntemiyle işlenecektir. 3B plastik parçalar 3B yazıcılar yardımıyla basılacaktır.
 
 \subsubsection{Fiziksel Özellikler}
 
-\begin{justify}
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\linewidth]{specs.jpg}
+\caption{Su Altı Aracının Ölçüleri}
+\end{figure}
+
+
+\paragraph{} Aracın ölçüleri 32cm genişlik, 34cm yükseklik ve 46cm uzunluk şeklindedir. Aracın ağırlığı ve yüzerliği 6.8kg dır, bu sayede araç hafifçe pozitif bir yüzerliğe sahiptir, herhangi bir kontrol kaybında araç hafif yüzerliği sayesinde yüzeye çıkacak ve sudan geri alınabilecektir. 
+
 
 \subsection{Elektronik, Algoritma ve Yazılım Tasarımı}
 
 \subsubsection{Elektronik Ön Tasarım Süreci}
 
-\begin{justify}
+
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+
 
 \subsubsection{Algoritma Ön Tasarım Süreci}
 
-\begin{justify}
+
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+
 
 \subsubsection{Yazılım Ön Tasarım Süreci}
 
-\begin{justify}
+
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+
 
 \subsubsection{Dış Arayüzler}
 
-\begin{justify}
+
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
-\end{justify}
+
 
 \section{Güvenlik}
 
-\begin{justify}
+
 \paragraph{} Aracımızın tasarımı gibi teknik, üretim ve montaj gibi pratik işlerin yanısıra en büyük önceliğimiz iş güvenliği ve emniyetdir. Testlerde, atölye çalışmalarında, önceliğimiz çalışmak için güvenli ve konforlu alanı oluşturmak olacaktır. Takım olarak, ekip üyelerine herhangi bir zarar gelmemesi ve olası iş kazalarını önlemek için her türlü önlemi uygulamaktan çekinmeyeceğiz.
 Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmedik. Tüm çalışma alanlarımızda uyarı levhaları kullandık.
-\end{justify}
-\begin{justify}
+
 \paragraph{} Aracımızın teknik özelliklerine dikkat ederken, güvenlik önlemlerini de göz ardı etmedik. Aracın üzerindeki motorların yerleşimi dışarıdan zarar gelmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırıldı. Bunların yanında, aracın üzerindeki tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanmıştır. Aracın üzerinde hiçbir sivri yüzey bırakılmamıştır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda karadaki kontrol merkezinde bulunan acil durdurma butonu sayesinde aracı hızlı bir şekilde durdurabilme imkanımız bulunmaktadır. Ayrıca araç üzerindeki manipülatörlerin, operasyon esnasında pilotun kontrol merkezinden gücünün kesilmesi mümkündür.
-\end{justify}
+
 
 \section{Zaman, Bütçe ve Risk Planlaması}
 
@@ -194,27 +188,27 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 \begin{tabular}{|l|c|r|r|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Malzeme İsmi}} & \textbf{Adet} & \multicolumn{1}{c|}{\textbf{Fiyat}} & \multicolumn{1}{c|}{\textbf{Toplam Fiyat}} \\ \hline
-iBM2208Q BLDC Motor      & 6      & ₺136.00       & ₺816.00       \\ \hline
-STM32F429ZI              & 1      & ₺216.00       & ₺216.00       \\ \hline
-Raspberry Pi 3 Model B   & 1      & ₺262.00       & ₺262.00       \\ \hline
-Bar30                    & 1      & ₺450.00       & ₺450.00       \\ \hline
-Raspberry Pi Kamera      & 1      & ₺105.00       & ₺105.00       \\ \hline
-USB Kamera               & 1      & ₺105.00       & ₺105.00       \\ \hline
-PCB                      & 1      & ₺300.00       & ₺300.00       \\ \hline
-PCB Komponentleri        & 1      & ₺100.00       & ₺100.00       \\ \hline
-Batarya                  & 6      & ₺35.00        & ₺210.00       \\ \hline
-Pleksi Kesim             & 1      & ₺500.00       & ₺500.00       \\ \hline
-CNC Aluminyum Parcalar   & 1      & ₺1,250.00     & ₺1,250.00     \\ \hline
-3D Print Parcalar        & 1      & ₺300.00       & ₺300.00       \\ \hline
-MPU 6050                 & 3      & ₺9.00         & ₺27.00        \\ \hline
-Monitor                  & 1      & ₺500.00       & ₺500.00       \\ \hline
-Joystick                 & 1      & ₺150.00       & ₺150.00       \\ \hline
-Tether Kablo             & 1      & ₺100.00       & ₺100.00       \\ \hline
-LittleBee ESC 20A        & 6      & ₺100.00       & ₺600.00       \\ \hline
-Akrilik Tup              & 1      & ₺100.00       & ₺100.00       \\ \hline
-Mekanik Sarf Malzemeleri & 1      & ₺100.00       & ₺100.00       \\ \hline
-Robot Kol                & 1      & ₺2,100.00     & ₺2,100.00     \\ \hline
-\textbf{Toplam}          & \multicolumn{3}{c|}{\textbf{₺6420.00}} \\ \hline
+iBM2208Q BLDC Motor      & 6      & 136.00       & 816.00       \\ \hline
+STM32F429ZI              & 1      & 216.00       & 216.00       \\ \hline
+Raspberry Pi 3 Model B   & 1      & 262.00       & 262.00       \\ \hline
+Bar30                    & 1      & 450.00       & 450.00       \\ \hline
+Raspberry Pi Kamera      & 1      & 105.00       & 105.00       \\ \hline
+USB Kamera               & 1      & 105.00       & 105.00       \\ \hline
+PCB                      & 1      & 300.00       & 300.00       \\ \hline
+PCB Komponentleri        & 1      & 100.00       & 100.00       \\ \hline
+Batarya                  & 6      & 35.00        & 210.00       \\ \hline
+Pleksi Kesim             & 1      & 500.00       & 500.00       \\ \hline
+CNC Aluminyum Parcalar   & 1      & 1,250.00     & 1,250.00     \\ \hline
+3D Print Parcalar        & 1      & 300.00       & 300.00       \\ \hline
+MPU 6050                 & 3      & 9.00         & 27.00        \\ \hline
+Monitor                  & 1      & 500.00       & 500.00       \\ \hline
+Joystick                 & 1      & 150.00       & 150.00       \\ \hline
+Tether Kablo             & 1      & 100.00       & 100.00       \\ \hline
+LittleBee ESC 20A        & 6      & 100.00       & 600.00       \\ \hline
+Akrilik Tup              & 1      & 100.00       & 100.00       \\ \hline
+Mekanik Sarf Malzemeleri & 1      & 100.00       & 100.00       \\ \hline
+Robot Kol                & 1      & 2,100.00     & 2,100.00     \\ \hline
+\textbf{Toplam}          & \multicolumn{3}{c|}{\textbf{6420.00}} \\ \hline
 \end{tabular}%
 }
 \caption{Bütçe}
@@ -223,9 +217,8 @@ Robot Kol                & 1      & ₺2,100.00     & ₺2,100.00     \\ \hline
 
 \section{Özgünlük}
 
-\begin{justify}
+
 \paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır. Random citation \cite{BOOK:o-ring} embeddeed in text.
-\end{justify}
 
 \section{Referanslar}
 
