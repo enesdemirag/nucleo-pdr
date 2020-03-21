@@ -140,7 +140,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsection{Organizasyon Şeması ve Görev Dağılımı}
 
-\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması ile gerçekleştirdik.
+\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması \footnote{\href{https://slack.com/}{https://slack.com}} ile gerçekleştiriyoruz.
 
 \paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
 
@@ -214,9 +214,9 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsubsection{Temel Bileşenler}
 
-\paragraph{} Nucleo'nun elektronik devreleri bir anakart ve tüp içerisindeki alanı verimli kullanabilmek adına anakart üzerine takılı yardımcı kartlardan oluşacaktır. Su altında çalışma performansı kanıtlanmış olan altı adet fırçasız doğru akım motoru, yine altı adet ESC ile sürülecektir. ESC'ler vasıtasıyla motorları kontrol edecek, görev eyleyici elemanları kontrol edecek ve gerekli sensörlerden veri alıp mikroişlemciyle haberleşerek aracın kontrolünü sağlayacak STM32F4 mikrodenetleyicisi kullanılacaktır. STM32 mikrodenetleyicileri yüksek performanslı ve kullanımı kolar mikrodenetleyiciler olup, Nucleo için uygun görülmüştür. 
+\paragraph{} Nucleo'nun elektronik devreleri bir anakart ve tüp içerisindeki alanı verimli kullanabilmek adına anakart üzerine takılı yardımcı kartlardan oluşacaktır. Su altında çalışma performansı kanıtlanmış olan altı adet fırçasız doğru akım motoru, yine altı adet ESC ile sürülecektir. ESC'ler vasıtasıyla motorları kontrol edecek, görev eyleyici elemanları kontrol edecek ve gerekli sensörlerden veri alıp mikroişlemciyle haberleşerek aracın kontrolünü sağlayacak STM32F4\footnote{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html}{https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html}} mikrodenetleyicisi kullanılacaktır. STM32 mikrodenetleyicileri yüksek performanslı ve kullanımı kolar mikrodenetleyiciler olup, Nucleo için uygun görülmüştür. 
 
-\paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile Raspberry Pi kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
+\paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile Raspberry Pi\footnote{\href{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}} kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
 
 \subsubsubsection{Yardımcı Bileşenler}
 
@@ -246,9 +246,13 @@ Anakart üzerine takılı STM32F429ZI mikrokontrolörün, temel görevi alt sevi
 
 Ayrıca gömülü sistem, basınç sensöründen elde ettiği veriyi, Kalman Filtresi ile filtreleyerek 5 eksen kontrol sisteminde kullanılacak olan derinlik geribeslemesini hesaplar.
 
+%%%%%% BURAYA BI KALMAN FITRESI CITATION GUZEL GIDER %%%%%%
+
 Bunun yanı sıra, yine temel fonksiyonlar kategorisine giren, eyleyicilerin (manipülatörlerin) kontrolünü de, gömülü yazılım yürütür.
 
-Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, ROS topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
+Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, ROS\footnote{\href{https://www.ros.org}{https://www.ros.org}} topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
+
+%%%%%% BURAYA ROS SİTESİNE Bİ FOOTNOTE GUZEL GIDER %%%%%% koydum bir tane generic link (değiştirilebilir)
 
 Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bünyesinde geliştirilmiştir ve tamamen özgündür. Bu yazılım İTÜ AUV Takımında da aktif olarak kullanılmaktadır ve modüler yapısı sayesinde teknofest yarışması için de kolayca entegre edilebilecektir.  
 % todo: topic nedir hacım ? xD
