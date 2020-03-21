@@ -2,13 +2,13 @@
 \usepackage[a4paper,left=1in,right=1in, top=1in, bottom=1in]{geometry}
 % marginleri 1er inch yaptim
 \renewcommand{\baselinestretch}{1.15} % satir araligi 1.15
-\usepackage{mathptmx}
-\usepackage[utf8]{inputenc}
+% \usepackage{mathptmx}
+% \usepackage[utf8]{inputenc}
 \usepackage[style=ieee]{biblatex}
-\usepackage[document]{ragged2e}
+%\usepackage[document]{ragged2e}
 \usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage{setspace}
+%\usepackage{hyperref}
+%\usepackage{setspace}
 % \usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
@@ -18,10 +18,11 @@
 \usepackage{acronym}
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
-\SetWatermarkText{\includegraphics[angle=-45]{images/teknofest-watermark.png}}
+\SetWatermarkText{\includegraphics[angle=-45]{images/watermark.png}}
 % watermark icin
 \usepackage{hyperref}
 % \usepackage{float}
+
 \usepackage{caption}
 \usepackage{filecontents}
 \captionsetup[table]{name=Tablo}
@@ -32,7 +33,6 @@
 % \selectlanguage{turkish}
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 %\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-
 
 % \subsubsubsection ekleme kodu başlangıcı.
 \titleclass{\subsubsubsection}{straight}[\subsection]
@@ -63,7 +63,7 @@
 \def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
 \makeatother
 
-\onehalfspacing
+
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
@@ -102,7 +102,6 @@
 \input{acronyms.tex}
 
 \newpage
-
 \section{Rapor Özeti}
 
 % nucleo ROV mu diyelim? 
@@ -149,10 +148,9 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \section{Araç Ön Tasarımı}
 
+\paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inç ekrana kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'un güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta ve acil durdurma butonu bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır. Taşınabilir yüzey istayonunda aynı zamanda aracın güç ve iletişim kablosu taşınabilecektir. 
 
-\paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inçe kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'un güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır.
-
-\paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. 
+\paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. Aracın şasesi akrilik plastik (PMMA) malzemeden modüler bir yapıda tasarlanmıştır. Bu modülerlik sayesinde araç üzeri yapılması istenecek herhangi bir modifikasyon kolaylaştırılmıştır. 
 
 \newpage
 \subsection{Sistem Ön Tasarımı}
@@ -160,16 +158,28 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{SID.png}
-\caption{System Integration Diagram}
+\caption{Sistem Entegrasyon Diyagramı}
+\label{fig:SID}
 \end{figure}
 
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\paragraph{} Sistem entegrasyon diyagramında da görüldüğü üzere, yüzey kısmında bir adet kontrol merkezi bulunmaktadır, bu taşınabilir kutu; araç kontrol bilgisayarı, araç güç kaynağı, güç kaynağı ile bağlantılı koruma(sigorta ve acil durum güç kesme butonu) vb. elemanları içerisinde barındırmaktadır. 
+
+\paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir(örn. tutucu kol).
+
+
 \newpage
 \subsection{Aracın Mekanik Tasarımı}
 
 \subsubsection{Mekanik Tasarım Süreci}
 
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır.
+\paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir. Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır, bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{images/moment.PNG}
+\caption{Düzeltme Momenti}
+\label{fig:moment}
+\end{figure}
 
 \subsubsection{Malzemeler}
 
@@ -200,25 +210,17 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsubsection{Enerji İletimi ve Dağıtımı}
 
-\paragraph{} Nucleo, gücünü şebekeden gelen 220VAC gerilimi 12VDC'ye dönüştüren bir güç kaynağından alacaktır. Nucleo'nun güç altı motoru ve diğer elektronik komponentlerinin güç gereksinimi göz önüne alındığında 30A taşıyabilecek 14AWG kablo yeterli olacaktır.
+\paragraph{} Nucleo, gücünü şebekeden gelen 220VAC gerilimi 12VDC'ye dönüştüren bir güç kaynağından alacaktır. Nucleo'nun altı motoru ve diğer elektronik devrelerinin güç gereksinimi göz önüne alındığında 30A taşıyabilecek 14AWG kablo yeterli olacaktır. Yüzey bilgisayarı ile Nucleo'nun haberleşmesi, güç kabloları üzerinden sağlanacak ve bu sayede daha az kablo kullanılacaktır. Araca aktarılan enerjinin bir kısmı doğrudan motor sürücüler ve motorlara iletilirken, bir kısmı regülatörler tarafından istenilen gerilimlere ayarlanıp ilgili bileşenlere dağıtılacaktır. Güç dağıtımı, hazırlanan güç dağıtım kartı üzerinden gerçekleştirilecektir.
 
 \subsubsubsection{Temel Bileşenler}
 
-\paragraph{} 
-\subsubsubsection{Sensörler ve Kameralar}
-\subsubsubsection{Güç İletimi ve Dağıtımı}
-\paragraph{}
+\paragraph{} Nucleo'nun elektronik devreleri bir anakart ve tüp içerisindeki alanı verimli kullanabilmek adına anakart üzerine takılı yardımcı kartlardan oluşacaktır. Su altında çalışma performansı kanıtlanmış olan altı adet fırçasız doğru akım motoru, yine altı adet ESC ile sürülecektir. ESC'ler vasıtasıyla motorları kontrol edecek, görev eyleyici elemanları kontrol edecek ve gerekli sensörlerden veri alıp mikroişlemciyle haberleşerek aracın kontrolünü sağlayacak STM32F4 mikrodenetleyicisi kullanılacaktır. STM32 mikrodenetleyicileri yüksek performanslı ve kullanımı kolar mikrodenetleyiciler olup, Nucleo için uygun görülmüştür. 
 
+\paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile Raspberry Pi kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
 
-The AUV has two main sections(back and front) and some little sections for other elements like torpedo and manipulator. Back section contains our battery, ESC's, microcontrollers and sensor boards. The vehicle is supplied with 4S10P Lithium-ion battery. Our battery also has a custom PCB that watches the state of charge and the state of health of the battery 7/24. The PCB has also 12V, 9V and 5V outputs. There are 8 thrusters and 8 ESC's. 
+\subsubsubsection{Yardımcı Bileşenler}
 
-Front section contains our CPU and cameras. Power transmission and communication are provided between these sections through bulkhead. Vehicle's working principle is simple, yet effective. Microcontrollers collect data from sensors and transmit those data to the NVDIA Xavier and receive commands from it. The communication occurs through TCP/IP protocol. We designed multiple PCB's to make debugging easier and in case of emergency, we wouldn't had to change the whole system.
-
-Under the vehicle, we have our hydrophones and a custom PCB that processes the signals and sends the data to main microcontroller. We used a 480MHz high speed microcontroller for hydrophone circuit and placed it right next to our hydrophones to minimize the environment's effects on the signals. 
-
-
-\paragraph{} {Bu kısımda aracın elektronik tasarım süreçleri anlatılır. Aracın ön tasarımına ait görsellere (Blok şema, teknik resim, prototip fotoğrafları vb.) yer verilir. Kullanılması planlanan alt bileşenler (Sensörler, kameralar, kablolar, anakart, motor sürücüler, güç kartları vb. ) hakkında bilgi verilir.}
-
+\paragraph{} Raspberry Pi tarafından işlenecek görüntü bir USB kamera vasıtasıyla alınacaktır. Nucleo'nun suyun ne kadar altında durduğunu anlaması adına bir basınç sensörü, istenilen görevleri gerçekleştirebilmesi adına bir robot kol bulunacaktır. Robot kol yine STM32 tarafından bir motor sürücü vasıtasıyla kontrol edilecektir.
 
 \subsubsection{Algoritma Ön Tasarım Süreci}
 
