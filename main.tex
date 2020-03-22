@@ -242,30 +242,38 @@ Başlıca sistemi genel parçalara ayıracak olursak
 
 \subsubsubsection{Gömülü Sistem \& Mikrokontrolör}
 
-Anakart üzerine takılı STM32F429ZI mikrokontrolörün, temel görevi alt seviye elektronik işlemleri ve aracın temel fonksiyonlarını kontrol etmektir. Geliştirilen gömülü yazılım, güç hattının gerilimini hassas bir şekilde ölçerek motorları istenilen kuvveti üretecek şekilde bir PWM sinyali üretir. Burada, ekibimiz tarafından motorun su altında yapılan testleriyle elde edilen PWM - Kuvvet karakteristiği kullanılır. bu sayede test edilen gerilim aralığında herhangi bir gerilimde, mikrokontrolör istenilen kuvveti üretecek PWM sinyaini hesaplayabilir, ve böylece 5-Eksen PID kontrolör ile kontrol sistemi çalıştırılır. Burada SimScape üzerinde yapılan CFD testleri ile de, drag (direnç) ve damping (sönüm) katsayıları hesaplanır. Bu hesaplar sonucu elde edilen matematik modele göre bir PID kontrolör tasarlanır, ve su altında gerçek sistem üzerinde yapılan testler sonucu ince ayar (Fine Tuning) yapılarak nihai parametrelere ulaşılır. 
+ \paragraph{}  Anakart üzerine takılı STM32F429ZI mikrokontrolörün, temel görevi alt seviye elektronik işlemleri ve aracın temel fonksiyonlarını kontrol etmektir. Geliştirilen gömülü yazılım, güç hattının gerilimini hassas bir şekilde ölçerek motorları istenilen kuvveti üretecek şekilde bir PWM sinyali üretir. Burada, ekibimiz tarafından motorun su altında yapılan testleriyle elde edilen PWM - Kuvvet karakteristiği kullanılır. bu sayede test edilen gerilim aralığında herhangi bir gerilimde, mikrokontrolör istenilen kuvveti üretecek PWM sinyaini hesaplayabilir, ve böylece 5-Eksen PID kontrolör ile kontrol sistemi çalıştırılır. Burada SimScape üzerinde yapılan CFD testleri ile de, drag (direnç) ve damping (sönüm) katsayıları hesaplanır. Bu hesaplar sonucu elde edilen matematik modele göre bir PID kontrolör tasarlanır, ve su altında gerçek sistem üzerinde yapılan testler sonucu ince ayar (Fine Tuning) yapılarak nihai parametrelere ulaşılır. 
 
 Ayrıca gömülü sistem, basınç sensöründen elde ettiği veriyi, Kalman Filtresi ile filtreleyerek 5 eksen kontrol sisteminde kullanılacak olan derinlik geribeslemesini hesaplar.
 
-%%%%%% BURAYA BI KALMAN FITRESI CITATION GUZEL GIDER %%%%%%
+%%%%%% BURAYA BI KALMAN FITRESI CITATION GUZEL GIDER %%%%%% kanka çok gerekli değilse yapmasak mı ? çünkü verdiğimiz citation bi anlam ifade etmezse boşuna koymuş olmayalım. ama araştıralım uygun bişey bulursak koyalım. koymuş olmak için koymayalım yani bence
+
 
 Bunun yanı sıra, yine temel fonksiyonlar kategorisine giren, eyleyicilerin (manipülatörlerin) kontrolünü de, gömülü yazılım yürütür.
 
 Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, ROS\footnote{\href{https://www.ros.org}{https://www.ros.org}} topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
 
-%%%%%% BURAYA ROS SİTESİNE Bİ FOOTNOTE GUZEL GIDER %%%%%% koydum bir tane generic link (değiştirilebilir)
+%%%%%% BURAYA ROS SİTESİNE Bİ FOOTNOTE GUZEL GIDER %%%%%% koydum bir tane generic link (değiştirilebilir) 
 
 Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bünyesinde geliştirilmiştir ve tamamen özgündür. Bu yazılım İTÜ AUV Takımında da aktif olarak kullanılmaktadır ve modüler yapısı sayesinde teknofest yarışması için de kolayca entegre edilebilecektir.  
 % todo: topic nedir hacım ? xD
 
 
-\subsubsubsection{Raspberry Pi \& Bilgisayar ?}
+\subsubsubsection{Merkezi Bilgisayar ve Karar Mekanizması Sistemi}
 
+\paragraph{} Aracın temel fonksiyonları gömülü yazılım tarafından STM32 üzerinde gerçekleştirilirken, görev akışını ve üst seviye hesaplamaları gerçekleştirecek olan bilgisayar, Raspberry Pi 2, Ethernet ve ya UART üzerinden STM32 ile haberleşerek temel fonksiyonların üst seviye yazılımlar ile iletişimini sağlar. Üst seviye yazılımlarda, ROS ağı üzerinde çalışacak olan yazılımlar, görüntü işleme ve HD USB Kamera görüntüsünün yüzeye aktarılması bulunur.
 
+ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum kontrolü, görüntü işleme sonucu elde edilen verileri işleme ve gerekli durumlarda tespit edilen objelerin pozisyon ve oryantasyon tespiti (tahmini) ve bu pozisyon(lar)ın filtrelenmesi gibi konuları gerçekleştirir.
 
-\subsubsection{Dış Arayüzler}
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{images/gui.png}
+\caption{Örnek bir GUI}
+\label{fig:gui}
+\end{figure}
 
-
-\paragraph{} GUI
+\subsubsection{GUI}
+\paragraph{}  ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
 
 
 \section{Güvenlik}
