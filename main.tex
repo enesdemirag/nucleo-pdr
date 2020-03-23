@@ -18,7 +18,7 @@
 \usepackage{acronym}
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
-\SetWatermarkText{\includegraphics[angle=-45]{images/watermark.png}}
+\SetWatermarkText{\includegraphics[angle=-45]{watermark.png}}
 % watermark icin
 \usepackage{hyperref}
 % \usepackage{float}
@@ -148,6 +148,13 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \section{Araç Ön Tasarımı}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{WBS.png}
+\caption{Bunun türkçesi ne ertuğrul?}
+\label{fig:wbs}
+\end{figure}
+
 \paragraph{} Takımımızın ROV sistemi yüzeyde bulunan bir kontrol istasyonu, ve ROV'un kendisinden oluşmaktadır. Kontrol istasyonunda 15.6 inç ekrana kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yüzey kontrol istasyonunda 12VDC 20A kapasiteli ROV'un güç kaynağı bulunmaktadır, güç kaynağı ile ROV güç beslemesi arasında 20A bir sigorta ve acil durdurma butonu bulunmaktadır. Taşınabilir yüzey istasyonunu prize bağlanması ve ROV'unda yüzey istasyonuna bağlanmasının ardından ROV kullanıma hazır olmaktadır. Taşınabilir yüzey istayonunda aynı zamanda aracın güç ve iletişim kablosu taşınabilecektir. 
 
 \paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. Aracın şasesi akrilik plastik (PMMA) malzemeden modüler bir yapıda tasarlanmıştır. Bu modülerlik sayesinde araç üzeri yapılması istenecek herhangi bir modifikasyon kolaylaştırılmıştır. 
@@ -172,11 +179,11 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Mekanik Tasarım Süreci}
 
-\paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir. Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır, bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
+\paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir. Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır, bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez haznesi dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
 % ya şu resimler neden hep aşağı kayıyor.
 \begin{figure}[h]
 \centering
-\includegraphics[width=1\textwidth]{images/moment.PNG}
+\includegraphics[width=1\textwidth]{moment.PNG}
 \caption{Düzeltme Momenti}
 \label{fig:moment}
 \end{figure}
@@ -265,14 +272,20 @@ Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bün
 
 ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum kontrolü, görüntü işleme sonucu elde edilen verileri işleme ve gerekli durumlarda tespit edilen objelerin pozisyon ve oryantasyon tespiti (tahmini) ve bu pozisyon(lar)ın filtrelenmesi gibi konuları gerçekleştirir.
 
+% Bir subsubsubsection da ben yaziyorum kanki goruntu isleme ile ilgili
+\subsubsubsection{Görüntü İşleme}
+\paragraph{} Araç üzerindeki kameralardan alınan görüntü Raspberry Pi üzerinde çalışan bir Python programı ile işlenip analiz edilerek, araca otonom olarak görev odaklı komutlar verilecektir. Görüntü işleme sisteminde openCV kütüphanesi kullanılacaktır. Elde edilen kamera görüntüsü su altında optimize edilecek görüntü işleme filtrelerinden\cite{ARTICLE:image_proc} geçirilecek ve geliştirdiğimiz görev karar algoritması sonucu yüzey kontrol istasyonundan tamamen bağımsız olarak, otonom bir şekilde görevleri gerçekleştirecektir.
+
+
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{images/gui.png}
+\includegraphics[width=1\textwidth]{gui.png}
 \caption{Örnek bir GUI}
 \label{fig:gui}
 \end{figure}
-% sencer bu figureler buyuk oldugu icin dokumanin sonuna kayiyor [h] ekleyerek cozuluyor galiba
-\subsubsection{GUI}
+\subsubsection{GUI} % bunu üste almak gerekmez mi?
+% GUI yerine Dış Arayüz (GUI) mi desek rapor taslağına ve türkçeye daha uygun olur??
+% NEDEN RESIMLER DOKUMANIN SONUNA KAYIYOR?? NEDEEENNNN ?
 \paragraph{}  ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
 
 
@@ -289,38 +302,7 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 
 \paragraph{} Blablabla
 
-\begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|c|r|r|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Malzeme İsmi}} & \textbf{Adet} & \multicolumn{1}{c|}{\textbf{Fiyat}} & \multicolumn{1}{c|}{\textbf{Toplam Fiyat}} \\ \hline
-iBM2208Q BLDC Motor      & 6      & 136.00       & 816.00       \\ \hline
-STM32F429ZI              & 1      & 216.00       & 216.00       \\ \hline
-Raspberry Pi 3 Model B   & 1      & 262.00       & 262.00       \\ \hline
-Bar30                    & 1      & 450.00       & 450.00       \\ \hline
-Raspberry Pi Kamera      & 1      & 105.00       & 105.00       \\ \hline
-USB Kamera               & 1      & 105.00       & 105.00       \\ \hline
-PCB                      & 1      & 300.00       & 300.00       \\ \hline
-PCB Komponentleri        & 1      & 100.00       & 100.00       \\ \hline
-Batarya                  & 6      & 35.00        & 210.00       \\ \hline
-Pleksi Kesim             & 1      & 500.00       & 500.00       \\ \hline
-CNC Aluminyum Parcalar   & 1      & 1,250.00     & 1,250.00     \\ \hline
-3D Print Parcalar        & 1      & 300.00       & 300.00       \\ \hline
-MPU 6050                 & 3      & 9.00         & 27.00        \\ \hline
-Monitor                  & 1      & 500.00       & 500.00       \\ \hline
-Joystick                 & 1      & 150.00       & 150.00       \\ \hline
-Tether Kablo             & 1      & 100.00       & 100.00       \\ \hline
-LittleBee ESC 20A        & 6      & 100.00       & 600.00       \\ \hline
-Akrilik Tup              & 1      & 100.00       & 100.00       \\ \hline
-Mekanik Sarf Malzemeleri & 1      & 100.00       & 100.00       \\ \hline
-Robot Kol                & 1      & 2,100.00     & 2,100.00     \\ \hline
-\textbf{Toplam}          & \multicolumn{3}{c|}{\textbf{6420.00}} \\ \hline
-\end{tabular}%
-}
-\caption{Bütçe}
-\label{tab:butce}
-\end{table}
+% Buraya butce gelecek ama Sekil degil Tablo yazsin altinda. 
 
 \paragraph{} Riskler aşağıda belirtilmiştir, ancak bu alandaki tecrübelerimizin yardımıyla projeyi başarıyla tamamlayacağımıza eminiz.  
 \begin{itemize}
@@ -332,7 +314,8 @@ Robot Kol                & 1      & 2,100.00     & 2,100.00     \\ \hline
 \section{Özgünlük}
 
 
-\paragraph{} AUV, su altında herhangi bir kontrol veya komuta sistemine bağlı kalmadan, yüksek çözünürlüklü algılayıcılar ve kameralar yardımı ile hareket sistemini kullanarak önceden belirlenmiş görevleri, daha önce tanımadığı bir ortamda otonom bir şekilde gerçekleştirebilen bir su altı aracıdır. Tasarım sürecinde olan aracımızın tasarım gerekçeleri teknik özellikler kısmında açıklanacaktır. Random citation \cite{BOOK:o-ring} embeddeed in text.
+\paragraph{} Blabla
+
 
 \section{Referanslar}
 
