@@ -18,10 +18,11 @@
 \usepackage{acronym}
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
-\SetWatermarkText{\includegraphics[angle=-45]{watermark.png}}
+\SetWatermarkText{\includegraphics[angle=-45, ]{watermark.png}}
 % watermark icin
 \usepackage{hyperref}
 % \usepackage{float}
+\usepackage{adjustbox}
 
 \usepackage{caption}
 \usepackage{filecontents}
@@ -77,6 +78,7 @@
 \textsc{\LARGE TEKNOFEST}\\[0.5cm]
 \textsc{\large HAVACILIK, UZAY VE TEKNOLOJİ FESTİVALİ}\\[0.5cm]
 \textsc{\large İnsansız Su Altı Sistemleri Yarışması}\\[0.5cm]
+% i ler ı olmuş sorun olur mu?
 \HRule{0.5pt} \\[0.4cm]
 {\LARGE \bfseries ÖN TASARIM RAPORU}\\[0.3cm]
 \HRule{0.5pt} \\[1.0cm]
@@ -113,16 +115,16 @@
 
 \paragraph{} ROV mümkün olduğunca üniversite bünyesinde üretilebilecek şekilde tasarlanacaktır ve üretim maliyetini en aza indirmek için ekibimizdeki insanların aynı zamanda çalışmakta olduğu İTÜ Gemi İnşaatı ve Deniz Bilimleri Fakültesi'ndeki Otonom Su Altı Aracı (AUV) Takımı'nın çalışma odası kullanılacaktır.
 
-\paragraph{} İTÜ ROV Takımı ve İTÜ AUV Takımı'nın kurucu üyeleri olarak her zaman açık kaynaklı çalışarak su altı sistemleri topluluğuna fayda sağladık. Geçtiğimiz yıllarda geliştirdiğimiz araçlarımız ile ilgili tüm mekanik-elektronik tasarımlar ve yazılımımızı GitHub adresimizde bulabilirsiniz. % silebiliriz
+\paragraph{} İTÜ ROV Takımı ve İTÜ AUV Takımı'nın kurucu üyeleri olarak her zaman açık kaynaklı çalışarak su altı sistemleri topluluğuna fayda sağladık. Geçtiğimiz yıllarda geliştirdiğimiz araçlarımız ile ilgili tüm mekanik-elektronik tasarımlar ve yazılımımızı GitHub adresimizde bulabilirsiniz. % olaya açıklık getirmeye çalıştım, silebiliriz
 
-\newpage
+% \newpage leri şimdilik kaldırdım. En son ekleriz.
 
 \section{Takım Şeması}
 \subsection{Takım Üyeleri}
 
 \paragraph{} Tüm üyelerimiz İstanbul Teknik Üniversitesi 4. Sınıf öğrencisidir. Takım Danışmanımız Ar. Gör. Mehmet Ozan Şerifoğlu'dur.
 
-\begin{table}[h]
+\begin{table}[hbt!]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|}
@@ -140,18 +142,17 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsection{Organizasyon Şeması ve Görev Dağılımı}
 
-\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması \footnote{\href{https://slack.com/}{https://slack.com}} ile gerçekleştiriyoruz.
+\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması \footnote{\href{https://slack.com/}{https://slack.com}} ile gerçekleştiriyoruz. % bu slack linki çok gereksiz oldu sanki sileyim mi?
 
 \paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
 
-\newpage
 
 \section{Araç Ön Tasarımı}
 
-\begin{figure}[h]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\textwidth]{WBS.png}
-\caption{Bunun türkçesi ne ertuğrul?}
+\caption{İş Kırılım Yapısı(WBS)}
 \label{fig:wbs}
 \end{figure}
 
@@ -159,10 +160,9 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} ROV üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır. İticiler takımımız tarafından tasarlanmıştır. ROV'un elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır. Aracın şasesi akrilik plastik (PMMA) malzemeden modüler bir yapıda tasarlanmıştır. Bu modülerlik sayesinde araç üzeri yapılması istenecek herhangi bir modifikasyon kolaylaştırılmıştır. 
 
-\newpage
 \subsection{Sistem Ön Tasarımı}
-
-\begin{figure}[h]
+% Buraya sizce PNG yerine JPEG mi yoksak? watermark yüzünden zor okunuyor. hatta bi border bile eklenebilir. yüzey-sualtı ayrımı keskinleştirilebilir isterseniz. 
+\begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\textwidth]{SID.png}
 \caption{Sistem Entegrasyon Diyagramı}
@@ -173,17 +173,17 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir(örn. tutucu kol).
 
-
-\newpage
 \subsection{Aracın Mekanik Tasarımı}
 
 \subsubsection{Mekanik Tasarım Süreci}
 
 \paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir. Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır, bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez haznesi dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
 % ya şu resimler neden hep aşağı kayıyor.
-\begin{figure}[h]
+\begin{figure}[hbt!]
 \centering
+ \begin{adjustbox}{width=7cm}
 \includegraphics[width=1\textwidth]{moment.PNG}
+ \end{adjustbox}
 \caption{Düzeltme Momenti}
 \label{fig:moment}
 \end{figure}
@@ -194,11 +194,11 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Üretim Yöntemleri}
 
-\paragraph{} Aracın şasesini oluşturan akrilik parçalar lazer kesim yöntemi ile işlenecektir. Bu yöntem ve akrilik malzeme seçimi üretim kolaylığı ve ekonomik oluşundan dolayı tercih edilmiştir. Su geçirmez kabın contalı flanşı aluminyumdan manuel torna da talaşlı imalat yöntemiyle işlenecektir. 3B plastik parçalar 3B yazıcılar yardımıyla basılacaktır.\newpage
+\paragraph{} Aracın şasesini oluşturan akrilik parçalar lazer kesim yöntemi ile işlenecektir. Bu yöntem ve akrilik malzeme seçimi üretim kolaylığı ve ekonomik oluşundan dolayı tercih edilmiştir. Su geçirmez kabın contalı flanşı aluminyumdan manuel torna da talaşlı imalat yöntemiyle işlenecektir. 3B plastik parçalar 3B yazıcılar yardımıyla basılacaktır.
 
 \subsubsection{Fiziksel Özellikler}
 
-\begin{figure}[h]
+\begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\linewidth]{specs.jpg}
 \caption{Su Altı Aracının Ölçüleri}
@@ -225,6 +225,8 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile Raspberry Pi\footnote{\href{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}} kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
 
+% Ertuğrul kanki ben iki tane footnote ekledim öylesine, bu kısım senin ben karışmıyorum istersen sil-editle-ekle sen daha iyi bilirsin.
+
 \subsubsubsection{Yardımcı Bileşenler}
 
 \paragraph{} Raspberry Pi tarafından işlenecek görüntü bir USB kamera vasıtasıyla alınacaktır. Nucleo'nun suyun ne kadar altında durduğunu anlaması adına bir basınç sensörü, istenilen görevleri gerçekleştirebilmesi adına bir robot kol bulunacaktır. Robot kol yine STM32 tarafından bir motor sürücü vasıtasıyla kontrol edilecektir.
@@ -232,7 +234,14 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \subsubsection{Algoritma Ön Tasarım Süreci}
 
 
-\paragraph{} Flow Chart
+\paragraph{} Araç uzaktan kontrol ve otonom olmak üzere iki farklı modda çalışabilecektir. algoritma 
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{akis-diyagrami.png}
+\caption{Akış Diyagramı}
+\label{fig:flow-chart}
+\end{figure}
 
 
 \subsubsection{Yazılım Ön Tasarım Süreci}
@@ -283,7 +292,7 @@ ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum k
 \caption{Örnek bir GUI}
 \label{fig:gui}
 \end{figure}
-\subsubsection{GUI} % bunu üste almak gerekmez mi?
+\subsubsubsection{GUI} % bunu üste almak gerekmez mi?
 % GUI yerine Dış Arayüz (GUI) mi desek rapor taslağına ve türkçeye daha uygun olur??
 % NEDEN RESIMLER DOKUMANIN SONUNA KAYIYOR?? NEDEEENNNN ?
 \paragraph{}  ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
@@ -313,12 +322,13 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 
 \section{Özgünlük}
 
+% Ozgunluk hakkinda her alandan birer cumle ile bir paragraf yazilacak
 
 \paragraph{} Blabla
 
-
+\newpage
 \section{Referanslar}
-
+\vspace{-1cm}
 \printbibliography[title={\textbf{ }}]
 
 
