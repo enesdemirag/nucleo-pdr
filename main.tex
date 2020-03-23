@@ -173,7 +173,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \subsubsection{Mekanik Tasarım Süreci}
 
 \paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir. Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır, bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
-
+% ya şu resimler neden hep aşağı kayıyor.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{images/moment.PNG}
@@ -271,7 +271,7 @@ ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum k
 \caption{Örnek bir GUI}
 \label{fig:gui}
 \end{figure}
-
+% sencer bu figureler buyuk oldugu icin dokumanin sonuna kayiyor [h] ekleyerek cozuluyor galiba
 \subsubsection{GUI}
 \paragraph{}  ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
 
@@ -321,6 +321,13 @@ Robot Kol                & 1      & 2,100.00     & 2,100.00     \\ \hline
 \caption{Bütçe}
 \label{tab:butce}
 \end{table}
+
+\paragraph{} Riskler aşağıda belirtilmiştir, ancak bu alandaki tecrübelerimizin yardımıyla projeyi başarıyla tamamlayacağımıza eminiz.  
+\begin{itemize}
+    \item Coronavirus nedeniyle proje planlanandan daha uzun sürebilir.
+    \item Yurtdışı malzeme temininde yaşanacak sıkıntılara alternatif çözüm aramak gerekebilir.
+    \item Projenin beklenenden daha maliyetli olması ekonomik sorunlara neden olabilir.
+\end{itemize}
 
 \section{Özgünlük}
 
