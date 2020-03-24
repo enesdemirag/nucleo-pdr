@@ -18,7 +18,7 @@
 \usepackage{acronym}
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
-\SetWatermarkText{\includegraphics[angle=-45, ]{watermark.png}}
+\SetWatermarkText{\includegraphics[angle=-45, ]{watermark-v2.png}}
 % watermark icin
 \usepackage{hyperref}
 % \usepackage{float}
@@ -155,20 +155,23 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması \footnote{\href{https://slack.com/}{https://slack.com}} ile gerçekleştiriyoruz. % bu slack linki çok gereksiz oldu sanki sileyim mi?
 
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{timeline.png}
+\caption{Stratejik Yol Haritası}
+\label{fig:path}
+\end{figure}
+% Bunu organızasyon semasına mı cıkartsak?
+
 \paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
 
-% \begin{figure}[hbt!] % gerek yok
-% \centering
-% \includegraphics[width=1\textwidth]{path.png}
-% \caption{Stratejik Yol Haritası}
-% \label{fig:path}
-% \end{figure}
+
 
 \section{Araç Ön Tasarımı}
 
 \begin{figure}[hbt!]
 \centering
-\includegraphics[width=1\textwidth]{WBS.png}
+\includegraphics[width=1\textwidth]{WBS-v2.png}
 \caption{İş Kırılım Yapısı(WBS)}
 \label{fig:wbs}
 \end{figure}
@@ -312,8 +315,8 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \caption{Örnek bir GUI}
 \label{fig:gui}
 \end{figure}
-\subsubsubsection{GUI} % bunu üste almak gerekmez mi?
-% GUI yerine Dış Arayüz (GUI) mi desek rapor taslağına ve türkçeye daha uygun olur??
+\subsubsection{GUI} % bunu üste almak gerekmez mi?
+% GUI ıle Dıs arayuz aynı sey mı?
 \paragraph{} ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
 
 
@@ -321,16 +324,26 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 
 \paragraph{} Aracımızın tasarımı gibi teknik, üretim ve montaj gibi pratik işlerin yanısıra en büyük önceliğimiz iş güvenliği ve emniyetdir. Testlerde, atölye çalışmalarında, önceliğimiz çalışmak için güvenli ve konforlu alanı oluşturmak olacaktır. Takım olarak, ekip üyelerine herhangi bir zarar gelmemesi ve olası iş kazalarını önlemek için her türlü önlemi uygulamaktan çekinmeyeceğiz.
-Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmedik. Tüm çalışma alanlarımızda uyarı levhaları kullandık.
+Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmeyeceğiz.
 
-\paragraph{} Aracımızın teknik özelliklerine dikkat ederken, güvenlik önlemlerini de göz ardı etmedik. Aracın üzerindeki motorların yerleşimi dışarıdan zarar gelmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırıldı. Bunların yanında, aracın üzerindeki tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanmıştır. Aracın üzerinde hiçbir sivri yüzey bırakılmamıştır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda karadaki kontrol merkezinde bulunan acil durdurma butonu sayesinde aracı hızlı bir şekilde durdurabilme imkanımız bulunmaktadır. Ayrıca araç üzerindeki manipülatörlerin, operasyon esnasında pilotun kontrol merkezinden gücünün kesilmesi mümkündür.
-
+\paragraph{} Aracımızın teknik özelliklerine dikkat ederken, güvenlik önlemlerini de göz ardı etmedik. Aracın üzerindeki motorların yerleşimi dışarıdan zarar gelmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırıldı. Bunların yanında, aracın üzerinde kullanılacak tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanacak ve aracın üzerinde hiçbir sivri yüzey bırakılmayacaktır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda yer istasyonunda bulunan acil durdurma butonu sayesinde aracı hızlı bir şekilde durdurabilme imkanımız bulunmaktadır. Ayrıca güç hesaplamaları yapılacak ve dağıtım hatlarında uygun sigortalar ve koruma devreleri kullanılacaktır.
+% Sızdırmazlık ve kabloların yalıtımı hakkında bısıyler eklenebılır.
+% Motorlarımızın sualtına uygun potlanacagını ve korozyondan korunacagını yazabılırız.
 
 \section{Zaman, Bütçe ve Risk Planlaması}
-
+\subsubsection{Zaman Planlaması}
 \paragraph{} Blablabla
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\textwidth]{chart-final.png}
+\caption{Zaman Çizelgesi}
+\label{fig:gantt-chart}
+\end{figure}
 
+\subsubsection{Bütçe Planlaması}
 % Buraya butce gelecek ama Sekil degil Tablo yazsin altinda. 
+
+\subsubsection{Risk Planlaması}
 
 \paragraph{} Riskler aşağıda belirtilmiştir, ancak bu alandaki tecrübelerimizin yardımıyla projeyi başarıyla tamamlayacağımıza eminiz.
 
@@ -343,6 +356,12 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 \section{Özgünlük}
 
 \paragraph{} Ozgunluk hakkinda her alandan birer cumle ile bir paragraf yazilacak.
+1 - Qground yerine kendi customizable GUImiz var
+2 - Pixhawk yerine kendi kontrolorumuz var
+3 - Kendi iticilerimizi tasarlayıp, üretip potlayacağız. T100/200 kullanmayacağız. Aynı kalitede daha ucuza yerli üreteceğiz.
+
+
+
 
 \newpage
 \section{Referanslar}
