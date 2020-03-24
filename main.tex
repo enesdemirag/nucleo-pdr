@@ -19,6 +19,7 @@
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
 \SetWatermarkText{\includegraphics[angle=-45, ]{watermark-v2.png}}
+% BU watermark iyi duruyor mu?
 % watermark icin
 \usepackage{hyperref}
 % \usepackage{float}
@@ -67,7 +68,6 @@
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
-
 % \subsubsubsection ekleme kodu sonu.
 
 
@@ -79,6 +79,7 @@
 \textsc{\large HAVACILIK, UZAY VE TEKNOLOJİ FESTİVALİ}\\[0.5cm]
 \textsc{\large İnsansız Su Altı Sistemleri Yarışması}\\[0.5cm]
 % i ler ı olmuş sorun olur mu?
+% Ertuğrul: bence sorun yok göremedim bir şey.
 \HRule{0.5pt} \\[0.4cm]
 {\LARGE \bfseries ÖN TASARIM RAPORU}\\[0.3cm]
 \HRule{0.5pt} \\[1.0cm]
@@ -98,7 +99,9 @@
 \begin{tabular}{l|l}
 \textbf{Takım Adı:}       &   Nucleo\\
 \textbf{Takım ID:}        &   T3-16167-166\\
-\textbf{Takım Üyeleri:}   &   Ege Saygılı, Enes Demirağ, Sencer Yazıcı,\\ 
+\textbf{Takım Üyeleri:}   &   Ege Saygılı\\
+                          &   Enes Demirağ\\
+                          &   Sencer Yazıcı\\ 
                           &   Sinan Ertuğrul Yıldırım\\
 \textbf{Takım Danışmanı:} &   Ar. Gör. Mehmet Ozan Şerifoğlu 
 \end{tabular}
@@ -118,6 +121,10 @@
 \section{Rapor Özeti}
 
 % nucleo ROV mu diyelim? 
+% Ertuğrul: Bence Nucleo diyelim, ismi gibi.
+% o zaman bu yaziyi komple gozden gecirip degistirelim.
+% bu arada tum footnotelari sildim sadece hyperlink yaptim bazilarina
+
 \paragraph{} Nucleo, İstanbul Teknik Üniversitesi Elektrik-Elektronik Fakültesi bünyesindeki farklı bölümlerden dört son sınıf öğrencisinin bir araya gelerek uzaktan kumandalı sualtı aracı (ROV) gerçekleştirmek üzere kurduğu bir proje takımıdır.
 
 \paragraph{} Takım üyeleri 2017 yılından bu yana İTÜ ROV Takımı ve İTÜ AUV Takımı bünyesinde yorulmak bilmeyen çalışmaların ve edinilen tecrübelerin ardından  yeni bir araç üreterek Teknofest Su altı Sistemleri Yarışması'nda derece elde etmeyi amaçlamaktadır.
@@ -153,7 +160,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsection{Organizasyon Şeması ve Görev Dağılımı}
 
-\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması \footnote{\href{https://slack.com/}{https://slack.com}} ile gerçekleştiriyoruz. % bu slack linki çok gereksiz oldu sanki sileyim mi?
+\paragraph{} Nucleo Takımı, İstanbul Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği, Kontrol ve Otomasyon Mühendisliği, Elektrik Mühendisliği bölümleri öğrencileri tarafından oluşturulmuştur. Ekip ve proje yönetimini sağlamak için haftalık takım toplantıları yaparken, proje yönetimine yardımcı olmak için planlarımızı Slack uygulaması ile gerçekleştiriyoruz. % footnote u sildim
 
 \paragraph{} Takımımız az sayıda insandan oluşması nedeniyle, görev dağılımı yapılmış olsa da tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerimizden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemleri ile, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımı ile, Ege Saygılı mekanik tasarım ve üretim, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemleri üzerinde çalışmaktadır.
 
@@ -163,6 +170,8 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \caption{Stratejik Yol Haritası}
 \label{fig:path}
 \end{figure}
+% Bunun arkaplani silebilirim ama o zaman yazilar watermark ile karisabilir. nasil olsun?
+
 
 \section{Araç Ön Tasarımı}
 
@@ -187,9 +196,9 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:SID}
 \end{figure}
 
-\paragraph{} Sistem entegrasyon diyagramında da görüldüğü üzere, yüzey kısmında bir adet kontrol merkezi bulunmaktadır, bu taşınabilir kutu; araç kontrol bilgisayarı, araç güç kaynağı, güç kaynağı ile bağlantılı koruma(sigorta ve acil durum güç kesme butonu) vb. elemanları içerisinde barındırmaktadır. 
+\paragraph{} Sistem entegrasyon diyagramında da görüldüğü üzere, yüzey kısmında bir adet kontrol merkezi bulunmaktadır, bu taşınabilir kutu; araç kontrol bilgisayarı, araç güç kaynağı, güç kaynağı ile bağlantılı koruma (sigorta ve acil durum güç kesme butonu) vb. elemanları içerisinde barındırmaktadır. 
 
-\paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir(örn. tutucu kol).
+\paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir (örn. tutucu kol).
 
 \subsection{Aracın Mekanik Tasarımı}
 
@@ -240,12 +249,13 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsubsection{Temel Bileşenler}
 
-\paragraph{} Nucleo'nun elektronik devreleri bir anakart ve tüp içerisindeki alanı verimli kullanabilmek adına anakart üzerine takılı yardımcı kartlardan oluşacaktır. Su altında çalışma performansı kanıtlanmış olan altı adet fırçasız doğru akım motoru, yine altı adet ESC ile sürülecektir. ESC'ler vasıtasıyla motorları kontrol edecek, görev eyleyici elemanları kontrol edecek ve gerekli sensörlerden veri alıp mikroişlemciyle haberleşerek aracın kontrolünü sağlayacak STM32F4\footnote{\href{https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html}{https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html}} mikrodenetleyicisi kullanılacaktır. STM32 mikrodenetleyicileri yüksek performanslı ve kullanımı kolar mikrodenetleyiciler olup, Nucleo için uygun görülmüştür. 
+\paragraph{} Nucleo'nun elektronik devreleri bir anakart ve tüp içerisindeki alanı verimli kullanabilmek adına anakart üzerine takılı yardımcı kartlardan oluşacaktır. Su altında çalışma performansı kanıtlanmış olan altı adet fırçasız doğru akım motoru, yine altı adet ESC ile sürülecektir. ESC'ler vasıtasıyla motorları kontrol edecek, görev eyleyici elemanları kontrol edecek ve gerekli sensörlerden veri alıp mikroişlemciyle haberleşerek aracın kontrolünü sağlayacak \href{https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html}{STM32F4} mikrodenetleyicisi kullanılacaktır. STM32 mikrodenetleyicileri yüksek performanslı ve kullanımı kolar mikrodenetleyiciler olup, Nucleo için uygun görülmüştür. 
 
-\paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile Raspberry Pi\footnote{\href{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}} kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
+\paragraph{} Nucleo'nun üst seviye yazılım görevlerini gerçekleştirilebilmesi adına, yeterli performansı ile \href{https://www.raspberrypi.org/products/raspberry-pi-3-model-b}{Raspberry Pi} kullanılacaktır. Yüzeydeki, pilot tarafından kullanılan bilgisayar Raspberry Pi ile ethernet üzerinden haberleşecek. Pilotun istediği hareketlerin motorlar tarafından gerçekleştirilmesi Raspberry Pi'ın STM32 ile haberleşmesiyle gerçekleştirilecektir.
 
 % Ertuğrul kanki ben iki tane footnote ekledim öylesine, bu kısım senin ben karışmıyorum istersen sil-editle-ekle sen daha iyi bilirsin.
-
+% Ertuğrul: footnote eklemek yerine hyperref yapabiliriz. İsterlerse tıklasınlar link açılır. Footnote'larda linkler olması garibime gitti benim biraz.
+% Enes: Tamamdir kaldirdim.
 \subsubsubsection{Yardımcı Bileşenler}
 
 \paragraph{} Raspberry Pi tarafından işlenecek görüntü bir USB kamera vasıtasıyla alınacaktır. Nucleo'nun suyun ne kadar altında durduğunu anlaması adına bir basınç sensörü, istenilen görevleri gerçekleştirebilmesi adına bir robot kol bulunacaktır. Robot kol yine STM32 tarafından bir motor sürücü vasıtasıyla kontrol edilecektir.
@@ -284,15 +294,16 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 %%%%%% BURAYA BI KALMAN FITRESI CITATION GUZEL GIDER %%%%%% kanka çok gerekli değilse yapmasak mı ? çünkü verdiğimiz citation bi anlam ifade etmezse boşuna koymuş olmayalım. ama araştıralım uygun bişey bulursak koyalım. koymuş olmak için koymayalım yani bence
 
-
 \paragraph{} Bunun yanı sıra, yine temel fonksiyonlar kategorisine giren, eyleyicilerin (manipülatörlerin) kontrolünü de, gömülü yazılım yürütür.
 
-\paragraph{} Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, ROS\footnote{\href{https://www.ros.org}{https://www.ros.org}} topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
+\paragraph{} Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, \href{https://www.ros.org}{ROS} topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
 
 %%%%%% BURAYA ROS SİTESİNE Bİ FOOTNOTE GUZEL GIDER %%%%%% koydum bir tane generic link (değiştirilebilir) 
+% EDIT: Footnote sildim hyperlink yaptim.
 
 \paragraph{} Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bünyesinde geliştirilmiştir ve tamamen özgündür. Bu yazılım İTÜ AUV Takımında da aktif olarak kullanılmaktadır ve modüler yapısı sayesinde teknofest yarışması için de kolayca entegre edilebilecektir.  
 % todo: topic nedir hacım ? xD
+% toplantida ege bunu cevaplasin.
 
 
 \subsubsubsection{Merkezi Bilgisayar ve Karar Mekanizması Sistemi}
@@ -302,6 +313,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \paragraph{} ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum kontrolü, görüntü işleme sonucu elde edilen verileri işleme ve gerekli durumlarda tespit edilen objelerin pozisyon ve oryantasyon tespiti (tahmini) ve bu pozisyon(lar)ın filtrelenmesi gibi konuları gerçekleştirir.
 
 % Bir subsubsubsection da ben yaziyorum kanki goruntu isleme ile ilgili
+% Ertuğrul: ben benimkileri paragrafa çevirecektim, sen subsubsubsection ekledin diye çevirmedim. Kalsın bari
 \subsubsubsection{Görüntü İşleme}
 \paragraph{} Araç üzerindeki kameralardan alınan görüntü Raspberry Pi üzerinde çalışan bir Python programı ile işlenip analiz edilerek, araca otonom olarak görev odaklı komutlar verilecektir. Görüntü işleme sisteminde openCV kütüphanesi kullanılacaktır. Elde edilen kamera görüntüsü su altında optimize edilecek görüntü işleme filtrelerinden\cite{ARTICLE:image_proc} geçirilecek ve geliştirdiğimiz görev karar algoritması sonucu yüzey kontrol istasyonundan tamamen bağımsız olarak, otonom bir şekilde görevleri gerçekleştirecektir.
 
@@ -314,6 +326,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \end{figure}
 \subsubsection{GUI} % bunu üste almak gerekmez mi?
 % GUI ile Dıs arayüz aynı şey mi? eğer öyleyse Dış Arayüz (GUI) yazalım mı başlığa hem türkçeye daha uygun hem örnek raporda öyle.
+% Ertuğrul +
 \paragraph{} ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir GUI geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, 11311 numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir GUI Şekil \ref{fig:gui}'de verilmiştir.
 
 %%%%%% BAZI YERLERDE "Pilot Arayüzü" BAZI YERLERDE "GUI" BAZI YERLERDE "Yer İstasyonu" BAZI YERLERDE "Kontrol İstasyonu" denilmiş. Bunlarda neyi kastettiğimize göre belirtip, düzeltelim.
@@ -352,6 +365,8 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 
 \paragraph{} Riskler aşağıda belirtilmiştir, ancak bu alandaki tecrübelerimizin yardımıyla projeyi başarıyla tamamlayacağımıza eminiz.
 
+%% Buraları unutmamak için öylesine yazdım. düzelticem. 
+% Ertuğrul: virüs vb nedenlerden doların dalgalı hareket etmesi projenin daha pahalıya mal olmasına neden olabilir.
 \begin{itemize}
     \item Coronavirus nedeniyle proje planlanandan daha uzun sürebilir.
     \item Yurtdışı malzeme temininde yaşanacak sıkıntılara alternatif çözüm aramak gerekebilir.
@@ -360,14 +375,12 @@ Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldive
 
 \section{Özgünlük}
 
+%% Buraları unutmamak için öylesine yazdım. düzelticem.
 \paragraph{} Ozgunluk hakkinda her alandan birer cumle ile bir paragraf yazilacak.
 1 - Qground yerine kendi customizable GUImiz var
 2 - Pixhawk yerine kendi kontrolorumuz var
 3 - Kendi iticilerimizi tasarlayıp, üretip potlayacağız. T100/200 kullanmayacağız. Aynı kalitede daha ucuza yerli üreteceğiz.
-
-
-
-
+% REFERANS YAPILABILECEKSEK YAPALIM, 
 \newpage
 \section{Referanslar}
 \vspace{-1cm}
