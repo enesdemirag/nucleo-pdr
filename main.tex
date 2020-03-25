@@ -3,6 +3,7 @@
 % marginleri 1er inch yaptim
 \renewcommand{\baselinestretch}{1.15} % satir araligi 1.15
 % \usepackage{mathptmx}
+\usepackage{subfig}
 % \usepackage[utf8]{inputenc}
 \usepackage[style=ieee]{biblatex}
 %\usepackage[document]{ragged2e}
@@ -183,10 +184,8 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \newpage
 
-\paragraph{} Takım üye sayısının az olması nedeniyle, görev dağılımı yapılmış olsa dahi tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır. Ekip üyelerinden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haberleşme sistemlerinden, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımından, Ege Saygılı mekanik tasarım ve üretimden, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemlerinden sorumludur.
+\paragraph{} Takım üye sayısının az olması nedeniyle, görev dağılımı yapılmış olsa dahi tüm üyelerin aracın her aşamasında ortak emeği olacaktır. Her üyenin bireysel olarak sorumlu olduğu görevler bulunmaktadır.
 
-
-% Bunun arkaplani silebilirim ama o zaman yazilar watermark ile karisabilir. nasil olsun?
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\textwidth]{WBS.png}
@@ -194,9 +193,13 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:wbs}
 \end{figure}
 
+\paragraph{} Ekip üyelerinden Enes Demirağ takımın genel organizasyonu, görüntü işleme ve haber-leşme sistemlerinden, Sencer Yazıcı otonom navigasyon ve kontrolör tasarımından, Ege Saygılı mekanik tasarım ve üretimden, Sinan Ertuğrul Yıldırım elektronik devre tasarımı ve güç sistemlerinden sorumludur.
+
 \newpage
 
 \section{Araç Ön Tasarımı}
+
+\paragraph{} Takımımızın uzaktan kumandalı su altı araç sistemi yüzeyde bulunan bir yer istasyonu, ve aracın kendisinden oluşmaktadır. Yer istasyonunda 15.6 inç ekrana kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yer istasyonunda 48VDC güç kaynağı bulunmaktadır, güç kaynağı ile aracın güç beslemesi arasında 30A bir sigorta ve acil durdurma butonu bulunmaktadır. Taşınabilir yer istasyonunu prize bağlanması ve aracın da yer istasyonuna bağlanmasının ardından araç kullanıma hazır olmaktadır. Taşınabilir yüzey istayonunda aynı zamanda aracın güç ve iletişim kablosu taşınabilecektir.
 
 \begin{figure}[hbt!]
 \centering
@@ -205,8 +208,8 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:render}
 \end{figure}
 
-\paragraph{} Takımımızın uzaktan kumandalı su altı araç sistemi yüzeyde bulunan bir yer istasyonu, ve aracın kendisinden oluşmaktadır. Yer istasyonunda 15.6 inç ekrana kadar dizüstü bilgisayar kullanımı desteklenmektedir. Aynı zamanda yer istasyonunda 48VDC güç kaynağı bulunmaktadır, güç kaynağı ile aracın güç beslemesi arasında 30A bir sigorta ve acil durdurma butonu bulunmaktadır. Taşınabilir yer istasyonunu prize bağlanması ve aracın da yer istasyonuna bağlanmasının ardından araç kullanıma hazır olmaktadır. Taşınabilir yüzey istayonunda aynı zamanda aracın güç ve iletişim kablosu taşınabilecektir. 
 \newpage
+
 \paragraph{} Araç üzerinde beş eksende hareket özgürlüğü sağlaması için altı adet fırçasız motorlu itici bulunmaktadır(Şekil \ref{fig:itici}). İticiler takımımız tarafından tasarlanmıştır. Aracın elektronikleri su geçirmez akrilik bir kap içerisinde bulunmaktadır. Su geçirmez kaba kablo girişleri/çıkışları, kapak sistemleri vs. tüm su girişi olabilecek açıklıklarda o-ring conta sistemi kullanılmıştır.\cite{BOOK:o-ring} Aracın şasesi akrilik plastik (PMMA) malzemeden modüler bir yapıda tasarlanmıştır. Bu modülerlik sayesinde araç üzeri yapılması istenecek herhangi bir modifikasyon kolaylaştırılmıştır.
 
 \begin{figure}[hbt!]
@@ -218,7 +221,12 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 
 \subsection{Sistem Ön Tasarımı}
-% Buraya sizce PNG yerine JPEG mi yoksak? watermark yüzünden zor okunuyor. hatta bi border bile eklenebilir. yüzey-sualtı ayrımı keskinleştirilebilir isterseniz. 
+\paragraph{} Sistem entegrasyon diyagramında da görüldüğü üzere, yüzey kısmında bir adet kontrol merkezi bulunmaktadır, bu taşınabilir kutu; araç kontrol bilgisayarı, araç güç kaynağı, güç kaynağı ile bağlantılı koruma (sigorta ve acil durum güç kesme butonu) vb. elemanları içerisinde barındırmaktadır. 
+
+\paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir (örn. tutucu kol) (Şekil \ref{fig:gripper}).
+
+\newpage
+
 \begin{figure}[hbt!]
 \centering
 \includegraphics[width=1\textwidth]{SID.png}
@@ -226,9 +234,20 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:SID}
 \end{figure}
 
-\paragraph{} Sistem entegrasyon diyagramında da görüldüğü üzere, yüzey kısmında bir adet kontrol merkezi bulunmaktadır, bu taşınabilir kutu; araç kontrol bilgisayarı, araç güç kaynağı, güç kaynağı ile bağlantılı koruma (sigorta ve acil durum güç kesme butonu) vb. elemanları içerisinde barındırmaktadır. 
+\subsection{Aracın Mekanik Tasarımı}
+\paragraph{} Araç, elektronik elemanları içeren ana su geçirmez hazne, şase, itici motorlar ve görev odaklı manipülatörlerden oluşmaktadır. Su geçirmez hazne silindirik yapıdadır ve arka kapağında kablo giriş/çıkışları, ön kapağında ise saydam bir kapak bulunmaktadır ve bu kapak kamera için görüş sağlamaktadır. Kapakların tüp ile arasındaki sızdırmazlığı için o-ring conta yatakları içeren iki adet flanş bulunmaktadır (Şekil \ref{fig:oring}). 
 
-\paragraph{} Aracın kendisi ise, navigasyon bilgisayarı, mikroişlemci, motor sürücüler, kamera vb. elektronik elemanları içeren bir su geçirmez hazne ve suyla temas eden altı adet itici ve görev spesifik eyleyicileri içermektedir (örn. tutucu kol)(Şekil \ref{fig:gripper}).
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.4\textwidth]{oring.png}
+\caption{O-Ring Conta Sızdırmazlık Sistemi}
+\label{fig:oring}
+\end{figure}
+
+\newpage
+
+\paragraph{} Aracın bütün parçalarının bağlandığı yapı olan şase ise birbine geçmeli şekilde tasarlanmış iki boyutlu akrilik plakalar şeklinde tasarlanmıştır. Bu akrilik plakaların montajı paslanmaz saplamalar ve somunlar ile yapılmıştır. Görev odaklı alet olarak yarışma görevlerinde bulunan objelerin manipülasyonu için bir adet üç parmaklı, fırçasız motor ve vidalı mil ile tahriklenen bir tutucu geliştirilmiştir. Bu tutucunun parmak sayısı ve şekli yarışma görevlerinde bulunan objelere göre değişebilecektir. 
+
 
 \begin{figure}[hbt!]
 \centering
@@ -237,43 +256,37 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:gripper}
 \end{figure}
 
-\subsection{Aracın Mekanik Tasarımı}
-\paragraph{} Araç, elektronik elemanları içeren ana su geçirmez hazne, şase, itici motorlar ve görev odaklı manipülatörlerden oluşmaktadır. Su geçirmez hazne silindirik yapıdadır ve arka kapağında kablo giriş/çıkışları, ön kapağında ise saydam bir kapak bulunmaktadır ve bu kapak kamera için görüş sağlamaktadır. Kapakların tüp ile arasındaki sızdırmazlığı için o-ring conta yatakları içeren iki adet flanş bulunmaktadır(Şekil \ref{fig:oring}). Aracın bütün parçalarının bağlandığı yapı olan şase ise birbine geçmeli şekilde tasarlanmış iki boyutlu akrilik plakalar şeklinde tasarlanmıştır. Bu akrilik plakaların montajı paslanmaz saplamalar ve somunlar ile yapılmıştır. Görev odaklı alet olarak yarışma görevlerinde bulunan objelerin manipülasyonu için bir adet üç parmaklı, fırçasız motor ve vidalı mil ile tahriklenen bir tutucu geliştirilmiştir. Bu tutucunun parmak sayısı ve şekli yarışma görevlerinde bulunan objelere göre değişebilecektir. 
-
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=0.6\textwidth]{oring.png}
-\caption{O-Ring Conta Sızdırmazlık Sistemi}
-\label{fig:oring}
-\end{figure}
-
-% RENDER %
 \subsubsection{Mekanik Tasarım Süreci}
 
 \paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik elemanların boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir.
 
 \paragraph{} Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır (Şekil \ref{fig:moment}), bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez haznesi dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
 
+\newpage
+
+\paragraph{}Şase ve su geçirmez kabın kapakları gibi aracın yüzey alanının büyük kısmını oluşturan parçalar olabildiğince düşük hidrodinamik direnç oluşturacak şekilde tasarlanmıştır. He-saplamalı akışkanlar dinamiği gibi yöntemlerle en uygun ve düşük sürüklenme katsayısına göre tasarlamaya gerek duyulmamıştır, çünkü yüzeyden enerjisini alan uzaktan kumandalı su altı araçlarında özellikle düşük hızlarda (1 - 1.5 $m/s$) araca etki eden hidrodinamik sürüklenme kuvveti, aracın güç ve haberleşme kablosu (tether) tarafından uygulanan kuvvete göre çok düşük kalmaktadır.\cite{BOOK:rovmanual} Bu sebeple sürüklenme kuvveti konusunda aracın tasarımında optimizasyona gerek duyulmamıştır.
+
 \begin{figure}[hbt!]
 \centering
  \begin{adjustbox}{width=10cm}
 \includegraphics[width=1\textwidth]{moment.png}
  \end{adjustbox}
- \vspace{-1cm}
+%  \vspace{-1cm}
 \caption{Düzeltme Momenti}
 \label{fig:moment}
 \end{figure}
 
-\paragraph{}Şase ve su geçirmez kabın kapakları gibi aracın yüzey alanının büyük kısmını oluşturan parçalar olabildiğince düşük hidrodinamik direnç oluşturacak şekilde tasarlanmıştır. Hesaplamalı akışkanlar dinamiği gibi yöntemlerle en uygun ve düşük sürüklenme katsayısına göre tasarlamaya gerek duyulmamıştır, çünkü yüzeyden enerjisini alan uzaktan kumandalı su altı araçlarında özellikle düşük hızlarda (1-1.5 $m/s$) araca etki eden hidrodinamik sürüklenme kuvveti, aracın güç ve haberleşme kablosu (tether) tarafından uygulanan kuvvete göre çok düşük kalmaktadır.\cite{BOOK:rovmanual} Bu sebeple sürüklenme kuvveti konusunda aracın tasarımında optimizasyona gerek duyulmamıştır.
 
 \subsubsection{Malzemeler}
 
 \paragraph{} Aracın iskeletini oluşturan parçalar ve su geçirmez haznenin tüpü gibi parçalar akrilik (PMMA) malzemeden seçilmiştir. Akrilik; hazır tüp bulunmasının kolaylığı, plaka halinde bulunmasının kolaylığı, lazer kesiminin çok kolay bulunuyor olması, ekonomik olması ve görsel özellikleri gibi sebeplerden ötürü seçilmiştir. İtici motorların koruyucu kısımları, pervaneler ve tutucu manipülatör gibi parçalar 3B plastik basım yöntemiyle üretilecektir. Su geçirmez haznenin o-ring conta bulunduran flanş parçaları alüminyumdan seçilmiştir. Araçta sabitleme elemanı olarak paslanmaz alyan başlı civatalar, paslanmaz somun ve gijonlar kullanılacaktır. Suda bulunması gereken kablo birleşim yerleri kablo gömme reçinesi ile gömülecek ve kablo üzerinde  sızdırmazlık sağlanacaktır (Şekil \ref{fig:inlinesplice}).
 
+\newpage
+
 \begin{figure}[hbt!]
 \centering
  \begin{adjustbox}{width=10cm}
-\includegraphics[width=1\textwidth]{images/inlinesplice.jpg}
+\includegraphics[width=1\textwidth]{inlinesplice.jpg}
  \end{adjustbox}
 \caption{Reçine İle Korunmuş Bir Kablo Eki}
 \label{fig:inlinesplice}
@@ -283,26 +296,37 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Aracın şasesini oluşturan akrilik parçalar lazer kesim yöntemi ile işlenecektir. Bu yöntem ve akrilik malzeme seçimi üretim kolaylığı ve ekonomik oluşundan dolayı tercih edilmiştir. Su geçirmez kabın conta yataklı flanşı aluminyumdan manuel torna da talaşlı imalat yöntemiyle işlenecektir. 3B plastik parçalar 3B yazıcılar yardımıyla basılacaktır.
 
-\paragraph{} İticilerde kullanılan fırçasız motorlar tuzlu ve tatlı suda çalışabilmektedir. Ancak bu motorlarda kullanılan malzemelerin bazıları (aluminyum motor şasesi) suda uzun süre korozyona uğramadan çalışabilmesine rağmen bazı malzemeler (bakır bobinlerin sarıldığı demir çekirdek, çelik rulman, neodymium mıknatıslar vb.) ise zaman içerisinde korozyona uğramakta ve motorun bozulmasına sebep olmaktadır (Şekil \ref{fig:korozyon}). Bu sebeple motorların rulmanlarının pirinç burç ya da seramik/plastik rulmanlarla değiştirilmesi ve bobinlerin sarıldığı demir çekirdeğin tamamının epoksi gibi koruyucu plastiklerle kaplaması planlanmaktadır. (Şekil \ref{fig:potted}). 
+\paragraph{} İticilerde kullanılan fırçasız motorlar tuzlu ve tatlı suda çalışabilmektedir. Ancak bu motorlarda kullanılan malzemelerin bazıları (aluminyum motor şasesi) suda uzun süre korozyona uğramadan çalışabilmesine rağmen bazı malzemeler (bakır bobinlerin sarıldığı demir çekirdek, çelik rulman, neodymium mıknatıslar vb.) ise zaman içerisinde korozyona uğramakta ve motorun bozulmasına sebep olmaktadır (Şekil \ref{fig:korozyon}). Bu sebeple motorların rulmanlarının pirinç burç ya da seramik/plastik rulmanlarla değiştirilmesi ve bobinlerin sarıldığı demir çekirdeğin tamamının epoksi gibi koruyucu plastiklerle kaplaması planlanmaktadır. (Şekil \ref{fig:korozyon}). 
 
-\begin{figure}[hbt!]
-\centering
- \begin{adjustbox}{width=7cm}
-\includegraphics[width=1\textwidth]{images/korozyon.png}
- \end{adjustbox}
-\caption{Fırçasız Bir Motorda Korozyon Örneği}
-\label{fig:korozyon}
+\begin{figure}%
+% \vspace{-3cm}
+    \centering
+    \subfloat[Korozyona Uğramış Motor Örneği]{{\includegraphics[width=7cm]{korozyon.png} }}%
+    \qquad
+    \subfloat[Korozyona Karşı Korunma Önlemleri Alınmış Motor Çekirdeği]{{\includegraphics[width=6cm]{potted.png} }}%
+    \caption{Fırçasız Motorlarda Korozyon}%
+    \label{fig:korozyon}%
 \end{figure}
 
-\begin{figure}[hbt!]
-\centering
- \begin{adjustbox}{width=7cm}
-\includegraphics[width=1\textwidth]{images/potted.png}
- \end{adjustbox}
-\caption{Korozyona Karşı Korunma Önlemleri Alınmış Bir Motor Çekirdeği}
-\label{fig:potted}
-\end{figure}
+% \begin{figure}[hbt!]
+% \centering
+%  \begin{adjustbox}{width=7cm}
+% \includegraphics[width=1\textwidth]{images/korozyon.png}
+%  \end{adjustbox}
+% \caption{Fırçasız Bir Motorda Korozyon Örneği}
+% \label{fig:korozyon}
+% \end{figure}
 
+% \begin{figure}[hbt!]
+% \centering
+%  \begin{adjustbox}{width=7cm}
+% \includegraphics[width=1\textwidth]{images/potted.png}
+%  \end{adjustbox}
+% \caption{Korozyona Karşı Korunma Önlemleri Alınmış Bir Motor Çekirdeği}
+% \label{fig:potted}
+% \end{figure}
+
+\newpage
 \subsubsection{Fiziksel Özellikler}
 
 \begin{figure}[hbt!]
@@ -320,12 +344,12 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Elektronik Ön Tasarım Süreci}
 
-\paragraph{} Aracın testlerine erken başlayabilmek adına elektronik tasarımda ilk olarak temel bileşenleri barındıran ve esneklik sağlayabilecek baskı deve tasarlanmaya başlanacaktır. Anakartta önceden düşünülmüş ve kullanılacak olan güç dağıtımı, haberleşme ve sensör pinlerinin dışında yedek planlara hızlı geçiş için fazladan giriş ve çıkışlar bulundurulacaktır. İlk testlerin ardından eksik ve hatalı noktalar giderilerek devremiz güncellenecek ve bu süreç istenilen görevleri başarıyla gerçekleştirene kadar devam edecektir. 
+\paragraph{} Aracın testlerine erken başlayabilmek adına elektronik tasarımda ilk olarak temel bi-leşenleri barındıran ve esneklik sağlayabilecek baskı deve tasarlanmaya başlanacaktır. Anakartta önceden düşünülmüş ve kullanılacak olan güç dağıtımı, haberleşme ve sensör pinlerinin dışında yedek planlara hızlı geçiş için fazladan giriş ve çıkışlar bulundurulacaktır. İlk testlerin ardından eksik ve hatalı noktalar giderilerek devremiz güncellenecek ve bu süreç istenilen görevleri başarıyla gerçekleştirene kadar devam edecektir. 
 
 \subsubsubsection{Enerji İletimi ve Dağıtımı}
 
-\paragraph{} Araç, gücünü şebekeden gelen 220VAC gerilimi 48VDC'ye dönüştüren bir güç kaynağından alacaktır. Araca ulaşan güç, regülatör yardımıyla 12V'a dönüştürülecektir. Enerji iletimi sırasında direkt 12V yerine 48V kullanılmasının sebebi iletimdeki akımı ve geirlim düşümünü azaltmaktır. Aracın altı motoru ve diğer elektronik devrelerinin güç gereksinimi göz önüne alındığında yaklaşık 350 Watt gücü 48V'ta taşıyabilmek için 14AWG kablo yeterli olacaktır. 14AWG, bakır, 30m kabloda 10A'da yaklaşık 5V gerilim düşümü olacaktır. 
-
+\paragraph{} Araç, gücünü şebekeden gelen 220VAC gerilimi 48VDC'ye dönüştüren bir güç kay-nağından alacaktır. Araca ulaşan güç, regülatör yardımıyla 12V'a dönüştürülecektir. Enerji iletimi sırasında direkt 12V yerine 48V kullanılmasının sebebi iletimdeki akımı ve geirlim düşümünü azaltmaktır. Aracın altı motoru ve diğer elektronik devrelerinin güç gereksinimi göz önüne alındığında yaklaşık 350 Watt gücü 48V'ta taşıyabilmek için 14AWG kablo yeterli olacaktır. 14AWG, bakır, 30m kabloda 10A'da yaklaşık 5V gerilim düşümü olacaktır. 
+\newpage
 \paragraph{}Yüzey bilgisayarı ile aracın haberleşmesi güç kabloları üzerinden sağlanacak ve bu sayede haberleşme için ekstra kablo ihtiyacına gerek duyulmayaaktır. Araca aktarıp 12V'a düşürülen gücün bir kısmı doğrudan motor sürücüler ve motorlara iletilirken, bir kısmı regülatörler tarafından istenilen gerilimlere ayarlanıp ilgili bileşenlere dağıtılacaktır. Güç dağıtımı, hazırlanan güç dağıtım kartı üzerinden gerçekleştirilecektir.
 
 \subsubsubsection{Temel Bileşenler}
@@ -341,19 +365,22 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \subsubsection{Algoritma Ön Tasarım Süreci}
 
-\begin{figure}[hbt!]
-\centering
-\includegraphics[width=1\textwidth]{flowchart-v2.png}
-\caption{Akış Diyagramı}
-\label{fig:flow-chart}
-\end{figure}
 
 \paragraph{} Araç uzaktan kontrol ve otonom olmak üzere iki farklı modda çalışabilecektir. Su Altı Temizlik ve Su Altı Montaj görevlerinde araç tamamen pilot kontrolünde olduğu süre boyunca kamera görüntüleri ve sensör verilerini yüzey kontrol sistemi arayüzünde görüntülerken, pilot joystick yardımıyla aracın navigasyonunu sağlayacaktır. Bunun dışında takım tarafından geliştirilen PID kontrolör sayesinde araç, pilot müdahale etmediği sürecek bulunduğu son derinliği koruyacaktır.
 
 \paragraph{} Engel Geçiş ve Denizaltı Tespit görevleri pilot müdahalesi olmadan tamamen otonom olarak hareket edecektir. Görüntü işleme algoritması ile göreve yönelik hedefler tespit edilecek ve güdüm kontrolü ile su altı navigasyon sağlanacatır. Bu süre içerisinde yer istasyonu ile olan uzaktan kontrol sistemi pasif duruma geçecek ve gözlem amaçlı olarak tek yönlü bir şekilde kamera görüntüleri ve sensör verileri yüzeye aktarılacaktır.
+\newpage
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.95\textwidth]{flowchart-v2.png}
+\caption{Akış Diyagramı}
+\label{fig:flow-chart}
+\end{figure}
 
 \paragraph{} Araç üzerindeki tüm kontrol, görüntü işleme ve karar verme algoritmaları ROS üzerinde Durum Makinesi (State Machine) methodu ile gerçeklenmektedir. ROS hakkında detaylı bilgi 3.3.3.2'de verilmiştir.
 
+\newpage
 \subsubsection{Yazılım Ön Tasarım Süreci}
 
 
@@ -374,13 +401,14 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} Son olaraksa, tüm bu verilerin ve kontrol sistemlerinin, temel karar verme mekanizmasının bulunduğu ana bilgisayara iletilmesi içinse, istenirse Ethernet, isternirse UART kullanılabilir. Gömülü sistem bu iletişim yöntemlerinin hangisinin aktif olduğunu belirleyerek birinden ötekine dinamik olarak geçebilmektedir. Gömülü yazılım tüm bunları, \href{https://www.ros.org}{ROS} topic ağı üzerinde gerçekleştirmekte olup, herhangi bir topic'i dinleyebilir, herhangi bir topic'e veri aktarımı yapabilmektedir. 
 
+\newpage
 
 \paragraph{} Bu gömülü sistem, yazılım ekibi üyemiz tarafından İTÜ AUV Takımı bünyesinde geliştirilmiştir ve tamamen özgündür. Bu yazılım İTÜ AUV Takımında da aktif olarak kullanılmaktadır ve modüler yapısı sayesinde teknofest yarışması için de kolayca entegre edilebilecektir.
 
 
 \subsubsubsection{Merkezi Bilgisayar ve Karar Mekanizması Sistemi}
 
-\paragraph{} Aracın temel fonksiyonları gömülü yazılım tarafından STM32 üzerinde gerçekleştirilirken, görev akışını ve üst seviye hesaplamaları gerçekleştirecek olan bilgisayar, Raspberry Pi 2, Ethernet ve ya UART üzerinden STM32 ile haberleşerek temel fonksiyonların üst seviye yazılımlar ile iletişimini sağlar. Üst seviye yazılımlarda, ROS ağı üzerinde çalışacak olan yazılımlar, görüntü işleme ve HD USB Kamera görüntüsünün yüzeye aktarılması bulunur.
+\paragraph{} Aracın temel fonksiyonları gömülü yazılım tarafından STM32 üzerinde gerçekleşti-rilirken, görev akışını ve üst seviye hesaplamaları gerçekleştirecek olan bilgisayar, Raspberry Pi 2, Ethernet ve ya UART üzerinden STM32 ile haberleşerek temel fonksiyonların üst seviye yazılımlar ile iletişimini sağlar. Üst seviye yazılımlarda, ROS ağı üzerinde çalışacak olan yazılımlar, görüntü işleme ve HD USB Kamera görüntüsünün yüzeye aktarılması bulunur.
 
 \paragraph{} ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum kontrolü, görüntü işleme sonucu elde edilen verileri işleme ve gerekli durumlarda tespit edilen objelerin pozisyon ve oryantasyon tespiti (tahmini) ve bu pozisyon(lar)ın filtrelenmesi gibi konuları gerçekleştirir.
 
@@ -388,17 +416,15 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \paragraph{} Araç üzerindeki kameralardan alınan görüntü Raspberry Pi üzerinde çalışan bir Python programı ile işlenip analiz edilerek, araca otonom olarak görev odaklı komutlar verilecektir. Görüntü işleme sisteminde openCV kütüphanesi kullanılacaktır. Elde edilen kamera görüntüsü su altında optimize edilecek görüntü işleme filtrelerinden\cite{ARTICLE:image_proc} geçirilecek ve geliştirdiğimiz görev karar algoritması sonucu yer istasyonundan tamamen bağımsız olarak, otonom bir şekilde görevleri gerçekleştirecektir.
 
 
-
 \subsubsection{Dış Arayüzler}
 \paragraph{} ROS ağının TCP/IP üzerinden çalışıyor olmasının avantajlarından faydalanarak, Rqt tabanlı bir kullanıcı arayüzü (GUI) geliştirmeyi düşünmekteyiz. Bu sayede yüzeydeki bilgisayar, Raspberry Pi'ın IP adresi ile, $11311$ numaralı porttan ROS ağına bağlanabilecek ve ROS ağı üzerindeki tüm topic'leri dinleyebilecek ve ya bu topic'lere veri aktarabilecektir. İTÜ AUV Takımı için oluşturmuş olduğumuz örnek bir kullanıcı arayüzü Şekil \ref{fig:gui}'de verilmiştir.
-
+\newpage
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{images/gui.png}
 \caption{Örnek Kullanıcı Arayüzü (GUI)}
 \label{fig:gui}
 \end{figure}
-%%%%%% BAZI YERLERDE "Pilot Arayüzü" BAZI YERLERDE "GUI" BAZI YERLERDE "Yer İstasyonu" BAZI YERLERDE "Kontrol İstasyonu" denilmiş. Bunlarda neyi kastettiğimize göre belirtip, düzeltelim.
 
 
 \section{Güvenlik}
@@ -407,7 +433,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{}Aracın üzerindeki motorlar, dışarıdan zarar görmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırılmıştır. Bunların yanı sıra, aracın üzerinde kullanılacak tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanacak ve aracın üzerinde herhangi bir sivri uç bırakılmayacaktır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda yer istasyonunda bulunan acil durdurma butonu sayesinde aracın hızlı bir şekilde durdurulma imkanı bulunmaktadır. Dağıtım hatlarında uygun sigortalar ve koruma devreleri de kullanılacaktır. İnsan sağlığına zarar verecek yüksek gerilimlere çıkılmayacaktır.
 
-% Motorlarımızın sualtına uygun potlanacagını ve korozyondan korunacagını yazabılırız.
+\newpage
 
 \section{Zaman, Bütçe ve Risk Planlaması}
 \subsection{Zaman Planlaması}
@@ -420,6 +446,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \label{fig:gantt-chart}
 \end{figure}
 
+\newpage
 \subsection{Bütçe Planlaması}
 
 \paragraph{} Bütçe planlaması aşamasında araç üzerindeki malzemelerde mümkün oldukça yüksek kalite ve düşük maliyet hedeflemekteyiz.
@@ -440,7 +467,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
     \item Yurt dışı malzeme temininde yaşanacak sıkıntılara alternatif çözüm aramak gerekebilir.
     \item Projenin beklenenden daha maliyetli olması ekonomik sorunlara neden olabilir.
 \end{itemize}
-
+\newpage
 \section{Özgünlük}
 
 %% Buraları unutmamak için öylesine yazdım. düzelticem.
