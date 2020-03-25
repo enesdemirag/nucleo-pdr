@@ -15,10 +15,11 @@
 % \usepackage{makeidx}
 % \usepackage{rotating}
 % \usepackage{tikz}
+\usepackage{array}
 \usepackage{acronym}
 \usepackage{draftwatermark}
 % \usepackage[pages=some]{background}
-\SetWatermarkText{\includegraphics[angle=-45, ]{watermark-v2.png}}
+\SetWatermarkText{\includegraphics[angle=-45]{watermark-v2.png}}
 % BU watermark iyi duruyor mu?
 % watermark icin
 \usepackage{hyperref}
@@ -30,6 +31,9 @@
 \captionsetup[table]{name=Tablo}
 \renewcommand{\figurename}{Şekil}
 \renewcommand{\contentsname}{İçindekiler}
+\renewcommand{\listfigurename}{Şekiller Listesi}
+\renewcommand{\listtablename}{Tablolar Listesi}
+
 \addbibresource{references.bib}
 %\renewcommand\refname{New Title}
 % \selectlanguage{turkish}
@@ -115,9 +119,14 @@
 
 \newpage
 \addcontentsline{toc}{section}{Kısaltmalar}
+
 \section*{Kısaltmalar}
 \input{acronyms.tex}
-
+\newpage
+\addcontentsline{toc}{section}{Şekiller Listesi}
+\addcontentsline{toc}{section}{Tablolar Listesi}
+\listoffigures
+\listoftables
 \newpage
 \section{Rapor Özeti}
 
@@ -217,18 +226,24 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \subsection{Aracın Mekanik Tasarımı}
 \paragraph{} Araç, elektronik elemanları içeren ana su geçirmez hazne, şase, itici motorlar ve görev odaklı manipülatörlerden oluşmaktadır. Su geçirmez hazne silindirik yapıdadır ve arka kapağında kablo giriş/çıkışları, ön kapağında ise saydam bir kapak bulunmaktadır ve bu kapak kamera için görüş sağlamaktadır. Kapakların tüp ile arasındaki sızdırmazlığı için o-ring conta yatakları içeren iki adet flanş bulunmaktadır. Aracın bütün parçalarının bağlandığı yapı olan şase ise birbine geçmeli şekilde tasarlanmış iki boyutlu akrilik plakalar şeklinde tasarlanmıştır. Bu akrilik plakaların montajı paslanmaz saplamalar ve somunlar ile yapılmıştır. Görev odaklı alet olarak yarışma görevlerinde bulunan objelerin manipülasyonu için bir adet üç parmaklı, fırçasız motor ve vidalı mil ile tahriklenen bir tutucu geliştirilmiştir. Bu tutucunun parmak sayısı ve şekli yarışma görevlerinde bulunan objelere göre değişebilecektir. 
 
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.6\textwidth]{images/pre_oring.png}
+\caption{Sistem Entegrasyon Diyagramı}
+\label{fig:oring}
+\end{figure}
 
 % RENDER %
 \subsubsection{Mekanik Tasarım Süreci}
 
-\paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik kontrolcülerin boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir.
+\paragraph{} Aracın mekanik tasarımına, bütçe, malzeme erişim  ve işleme imkanları, yerli malzeme kullanımı, yarışma boy ve ağırlık sınırlamaları ve kullanılacak elektronik elemanların boyutlarından yola çıkılarak başlanmıştır. Kullanılması elzem olan elektronik komponentlerin ve o komponentlerin boyutlarının saptanmasının ardından aracın geri kalan ölçülerini belirleyecek olan ana su geçirmez haznenin boyutları belirlenmiştir. Su geçirmez hazne saydam olması, yarışma derinliği için yeterince dayanıklı olması, ucuz ve kolayca bulunabiliyor olmasından ötürü saydam akrilik tüp seçilmiştir.
 
 \paragraph{} Ana haznenin belirlenmesinin ardından şase tasarımına geçilmiş ve haznenin şasede üst konumda bulunması amaçlanmıştır. Hazne, hacminden ötürü aracın yüzerliğinin büyük kısmını oluşturmaktadır, aracın yüzerlik merkezi ağırlık merkezine göre yukarıda ayarlanmaya çalışılmıştır (Şekil \ref{fig:moment}), bu fark sayesinde bir düzeltme momenti oluşacak ve araç serbest halde yere parelel duracaktır, ve stabilitesi artacaktır.\cite{BOOK:rovmanual} Yüzerlik merkezi ve ağırlık merkezi arasındaki farkı daha da açmak ve ağırlık merkezini iticileri hizasına getirmek için araç su geçirmez haznesi dışında diğer tüm elemanlarını alt kısımda bulunduracak şekilde tasarlanmıştır.
 
 \begin{figure}[hbt!]
 \centering
  \begin{adjustbox}{width=10cm}
-\includegraphics[width=1\textwidth]{images/moment.png}
+\includegraphics[width=1\textwidth]{moment-removed.png}
  \end{adjustbox}
 \caption{Düzeltme Momenti}
 \label{fig:moment}
@@ -353,7 +368,7 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 
 \paragraph{} ROS ağı üzerinde bulunan Node'lar, temel olarak veri iletişimi, acil durum kontrolü, görüntü işleme sonucu elde edilen verileri işleme ve gerekli durumlarda tespit edilen objelerin pozisyon ve oryantasyon tespiti (tahmini) ve bu pozisyon(lar)ın filtrelenmesi gibi konuları gerçekleştirir.
 
-%% HERYERDE KULLANICI 
+%% HER YERDE KULLANICI 
 
 
 \subsubsubsection{Görüntü İşleme}
@@ -376,10 +391,11 @@ Sinan Ertuğrul Yıldırım & Elektrik Mühendisliği                 & Elektron
 \section{Güvenlik}
 
 % Ertuğrul: Bu güvenlik kısmı çok sizli bizli olmuş bunu düzeltir misiniz saat 4:19 uykum geldi benim.
-\paragraph{} Aracımızın tasarımı gibi teknik, üretim ve montaj gibi pratik işlerin yanı sıra en büyük önceliğimiz iş güvenliği ve emniyetdir. Testlerde ve atölye çalışmalarında önceliğimiz, çalışmak için güvenli ve konforlu alanı oluşturmak olacaktır. Takım olarak ekip üyelerine herhangi bir zarar gelmemesi ve olası iş kazalarını önlemek için her türlü önlemi uygulamaktan çekinmeyeceğiz.
-Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmeyeceğiz.
+\paragraph{} Aracın tasarımı gibi teknik, üretim ve montaj gibi pratik işlerin yanı sıra en büyük öncelik iş güvenliği ve emniyetdir. Testlerde ve atölye çalışmalarında öncelik, çalışmak için güvenli ve konforlu alanı oluşturmak olacaktır. Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmeyeceğiz.
 
-\paragraph{} Aracımızın teknik özelliklerine dikkat ederken, güvenlik önlemlerini de göz ardı etmedik. Aracın üzerindeki motorların yerleşimi dışarıdan zarar gelmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırıldı. Bunların yanında, aracın üzerinde kullanılacak tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanacak ve aracın üzerinde hiçbir sivri yüzey bırakılmayacaktır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda yer istasyonunda bulunan acil durdurma butonu sayesinde aracı hızlı bir şekilde durdurabilme imkanımız bulunmaktadır. Ayrıca güç hesaplamaları yapılacak ve dağıtım hatlarında uygun sigortalar ve koruma devreleri kullanılacaktır.
+\paragraph{}Aracın tasarımı gibi teknik, üretim ve montaj gibi pratik işlerin yanı sıra en büyük öncelik iş güvenliği ve emniyetdir. Testlerde ve atölye çalışmalarında öncelik, çalışmak için güvenli ve konforlu alanı oluşturmak olacaktır. Atölye çalışmalarımızda kişisel koruyucu ekipmanlar olan gözlük, eldiven, maske gibi ekipmanların kullanılmasının yanında atölyemizde acil göz banyosu ve ilk yardım kiti bulundurmayı da ihmal etmeyeceğiz.
+
+\paragraph{}Aracın üzerindeki motorların yerleşimi dışarıdan zarar gelmeyecek ve dışarıya zarar vermeyecek şekilde konumlandırılmıştır. Bunların yanı sıra, aracın üzerinde kullanılacak tüm plastik kelepçeler kullanıcılara zarar veremeyecek şekilde tıraşlanacak ve aracın üzerinde herhangi bir sivri uç bırakılmayacaktır. Aracın su altında herhangi bir sorunda karşılaşılması durumunda yer istasyonunda bulunan acil durdurma butonu sayesinde aracın hızlı bir şekilde durdurulma imkanı bulunmaktadır. Dağıtım hatlarında uygun sigortalar ve koruma devreleri de kullanılacaktır.
 
 % Motorlarımızın sualtına uygun potlanacagını ve korozyondan korunacagını yazabılırız.
 
