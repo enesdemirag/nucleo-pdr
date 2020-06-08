@@ -4,7 +4,7 @@
 
 Takımımız MATE ROV Competition su altı robotik yarışması Türkiye bölgesel yarışmasında 2017 ve 2018 yılı üst üste şampiyon olarak Amerika'da dereceye giren İTÜ ROV Takımı'nın kurucularından oluşmaktadır.
 
-Teknofest Yarışma Raporları için bu LaTeX dosyasını kullanabilirsiniz.  
+Teknofest Yarışma Raporları için bu [LaTeX](https://github.com/enesdemirag/on-tasarim-raporu/releases) dosyasını kullanabilirsiniz.
 
 ## Üyeler
 * [Enes Demirağ](https://github.com/enesdemirag)
